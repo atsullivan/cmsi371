@@ -57,11 +57,17 @@ $(function () {
         // -----pockets
         sprites.renderingContext.fillStyle = "black";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.moveTo(-15, 40);
-        sprites.renderingContext.rect(-15, 40, 9, 11);
-        sprites.renderingContext.moveTo(15, 40);
-        sprites.renderingContext.rect(6, 40, 9, 11);
+        sprites.renderingContext.moveTo(-14, 40);
+        sprites.renderingContext.rect(-14, 40, 8, 11);
+        sprites.renderingContext.moveTo(-14, 40);
+        sprites.renderingContext.lineTo(-10, 45);
+        sprites.renderingContext.lineTo(-6, 40);
+      //  sprites.renderingContext.moveTo(15, 40);
+        sprites.renderingContext.rect(6, 40, 8, 11);
+        sprites.renderingContext.lineTo(10, 45);
+        sprites.renderingContext.lineTo(14, 40);
         sprites.renderingContext.stroke();
+        
         
         // -----collar
         sprites.renderingContext.fillStyle = "green";
