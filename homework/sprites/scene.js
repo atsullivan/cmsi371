@@ -4,16 +4,15 @@ $(function () {
 
     sprites.renderingContext = renderingContext;
 
-    sprites.willy.x = 210;
-    sprites.willy.y = 130;
+    sprites.stan.x = 210;
+    sprites.stan.y = 130;
 
     sprites.geoff.x = 250;
 
     sprites.car.x = 300;
 
-    sprites.drawWilly();
+    sprites.drawStan();
 //    sprites.drawGeoff();
-//    sprites.drawWillyShirt();
 //    sprites.drawGeoffShirt();
 //    sprites.drawCar();
 });
