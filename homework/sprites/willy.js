@@ -23,14 +23,14 @@ $(function () {
         sprites.renderingContext.fillStyle = "brown";
         sprites.renderingContext.strokeStyle = "brown";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.moveTo(-17, 25);
+        sprites.renderingContext.moveTo(-20, 23);
         sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
         sprites.renderingContext.quadraticCurveTo(-26, 50, -23, 50);
         sprites.renderingContext.quadraticCurveTo(-23, 50, -24, 57);
         sprites.renderingContext.quadraticCurveTo(0, 63, 24, 57);
         sprites.renderingContext.quadraticCurveTo(23, 50, 23, 50);
         sprites.renderingContext.quadraticCurveTo(24, 50, 30, 50);
-        sprites.renderingContext.quadraticCurveTo(30, 35, 17, 25);
+        sprites.renderingContext.quadraticCurveTo(30, 35, 20, 23);
         sprites.renderingContext.fill();
         sprites.renderingContext.stroke();
         // -----seem
@@ -43,14 +43,14 @@ $(function () {
         sprites.renderingContext.fillStyle = "black";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.arc(-3, 37, 1, 0, Math.PI * 2);
-        sprites.renderingContext.arc(5, 2, 1, 0, Math.PI * 2);
+        sprites.renderingContext.arc(-3, 45, 1, 0, Math.PI * 2);
+        sprites.renderingContext.arc(-3, 53, 1, 0, Math.PI * 2);
         sprites.renderingContext.fill();
-
         // -----collar
         sprites.renderingContext.fillStyle = "red";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.moveTo(17, 25);
-        sprites.renderingContext.quadraticCurveTo(0, 43, -17, 25);
+        sprites.renderingContext.moveTo(20, 23);
+        sprites.renderingContext.quadraticCurveTo(0, 45, -20, 23);
         sprites.renderingContext.fill();    
 
 
@@ -69,7 +69,6 @@ $(function () {
         
         //-----circles
         sprites.renderingContext.arc(-8, 2, 8, 0, Math.PI * 2);
-        sprites.renderingContext.moveTo(16,1);
         sprites.renderingContext.arc(8, 2, 8, 0, Math.PI * 2);
         sprites.renderingContext.fill();
         //-----curves
@@ -121,7 +120,15 @@ $(function () {
         sprites.renderingContext.fill();
         sprites.renderingContext.stroke();
         
+        //STAN'S HANDS
+        sprites.renderingContext.beginPath();
+        // -----fists
+        sprites.renderingContext.arc(-27, 50, 6, 0, Math.PI * 2);
+        sprites.renderingContext.arc(27, 50, 6, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        // -----thumbs
         
+
         
         
         
@@ -137,11 +144,11 @@ $(function () {
     window['sprites'].drawWillyShirt = function () {
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.willy.x, sprites.willy.y);
-        sprites.renderingContext.fillStyle = "brown";
+        sprites.renderingContext.fillStyle = "red";
         sprites.renderingContext.strokeStyle = "black";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.moveTo(0, 30);
-        sprites.renderingContext.quadraticCurveTo(0, 0, -35, 80);
+        sprites.renderingContext.moveTo(0, 100);
+        sprites.renderingContext.quadraticCurveTo(0, 0, -50, 80);
         
         sprites.renderingContext.fill();
         sprites.renderingContext.stroke();
