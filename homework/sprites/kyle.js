@@ -16,7 +16,7 @@ $(function () {
         sprites.renderingContext.scale(3, 3);
  
         // STAN'S PANTS
-        sprites.renderingContext.fillStyle = "blue";
+        sprites.renderingContext.fillStyle = "green";
         sprites.renderingContext.strokeStyle = "black";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-22, 58);
@@ -35,8 +35,8 @@ $(function () {
         sprites.renderingContext.fill();
  
         // STAN'S SHIRT
-        sprites.renderingContext.fillStyle = "brown";
-        sprites.renderingContext.strokeStyle = "brown";
+        sprites.renderingContext.fillStyle = "orange";
+        sprites.renderingContext.strokeStyle = "orange";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-20, 23);
         sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
@@ -54,15 +54,17 @@ $(function () {
         sprites.renderingContext.moveTo(0, 25);
         sprites.renderingContext.quadraticCurveTo(0, 0, 0, 60);
         sprites.renderingContext.stroke();
-        // -----buttons
+        // -----pockets
         sprites.renderingContext.fillStyle = "black";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.arc(-3, 37, 1, 0, Math.PI * 2);
-        sprites.renderingContext.arc(-3, 45, 1, 0, Math.PI * 2);
-        sprites.renderingContext.arc(-3, 53, 1, 0, Math.PI * 2);
-        sprites.renderingContext.fill();
+        sprites.renderingContext.moveTo(-15, 40);
+        sprites.renderingContext.rect(-15, 40, 9, 11);
+        sprites.renderingContext.moveTo(15, 40);
+        sprites.renderingContext.rect(6, 40, 9, 11);
+        sprites.renderingContext.stroke();
+        
         // -----collar
-        sprites.renderingContext.fillStyle = "red";
+        sprites.renderingContext.fillStyle = "green";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(20, 23);
         sprites.renderingContext.quadraticCurveTo(0, 45, -20, 23);
@@ -103,14 +105,13 @@ $(function () {
         sprites.renderingContext.stroke();
             
         // STAN'S HAT
-        sprites.renderingContext.fillStyle = "blue";
+        sprites.renderingContext.fillStyle = "green";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-27, -13);
         sprites.renderingContext.quadraticCurveTo(-16, -31, 0, -30);
         sprites.renderingContext.quadraticCurveTo(16, -31, 27, -13);
         sprites.renderingContext.fill();
         // -----hat rim
-        sprites.renderingContext.fillStyle = "red";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-30, -5);
         sprites.renderingContext.quadraticCurveTo(0, -16, 30, -5);
