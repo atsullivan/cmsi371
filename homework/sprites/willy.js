@@ -17,8 +17,26 @@ $(function () {
         
         
         
+        // STAN'S PANTS
+        sprites.renderingContext.fillStyle = "blue";
+        sprites.renderingContext.strokeStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-22, 58);
+        sprites.renderingContext.quadraticCurveTo(-23, 51, -22, 67);
+        sprites.renderingContext.quadraticCurveTo(0, 67, 22, 67);
+        sprites.renderingContext.quadraticCurveTo(23, 51, 22, 58);
         
+        sprites.renderingContext.fill();
         
+        //STAN'S SHOES
+        sprites.renderingContext.fillStyle = "black";
+        sprites.renderingContext.strokeStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-27, 67);
+        sprites.renderingContext.quadraticCurveTo(-16, 61, 0, 67);
+        sprites.renderingContext.quadraticCurveTo(16, 61, 27, 67);
+        sprites.renderingContext.fill();
+ 
         // STAN'S SHIRT
         sprites.renderingContext.fillStyle = "brown";
         sprites.renderingContext.strokeStyle = "brown";
@@ -127,7 +145,12 @@ $(function () {
         sprites.renderingContext.arc(27, 50, 6, 0, Math.PI * 2);
         sprites.renderingContext.fill();
         // -----thumbs
-        
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.arc(-23, 48, 3, 0, Math.PI * 2);
+        sprites.renderingContext.moveTo(26, 48);
+        sprites.renderingContext.arc(23, 48, 3, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        //sprites.renderingContext.stroke();
 
         
         
