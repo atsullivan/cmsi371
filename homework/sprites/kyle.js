@@ -1,18 +1,18 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
-    window['sprites'].stan = {
+    window['sprites'].kyle = {
         x: 50,
         y: 50,
     };
     
-    // STAN MARSH
-    window['sprites'].drawStan = function () {
+    // Kyle Broflovski
+    window['sprites'].drawKyle = function () {
         var fleshR = 255,
             fleshG = 213,
             fleshB = 190;
 
         sprites.renderingContext.save();
-        sprites.renderingContext.translate(sprites.stan.x, sprites.stan.y);
+        sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
         sprites.renderingContext.scale(3, 3);
  
         // STAN'S PANTS
