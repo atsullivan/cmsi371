@@ -4,13 +4,14 @@ $(function () {
 
     sprites.renderingContext = renderingContext;
 
-    sprites.stan.x = 210;
-    sprites.stan.y = 130;
+    sprites.stan.x = 100;
+    sprites.kyle.x = 200;
+    sprites.kyle.y = 200;
 
   
 
     sprites.drawStan();
-//    sprites.drawGeoff();
+    sprites.drawKyle();
 //    sprites.drawGeoffShirt();
 //    sprites.drawCar();
 });
