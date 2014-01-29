@@ -8,10 +8,6 @@ $(function () {
     sprites.kyle.x = 200;
     sprites.kyle.y = 200;
 
-  
-
     sprites.drawStan();
     sprites.drawKyle();
-//    sprites.drawGeoffShirt();
-//    sprites.drawCar();
 });
