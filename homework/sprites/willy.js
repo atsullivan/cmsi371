@@ -46,10 +46,6 @@ $(function () {
         sprites.renderingContext.arc(5, 2, 1, 0, Math.PI * 2);
         sprites.renderingContext.fill();
         
-
-
-        
-        
         // STAN'S SMILE
         sprites.renderingContext.beginPath();
         sprites.renderingContext.scale(1.0, 1.0);
@@ -58,9 +54,7 @@ $(function () {
         //If i want a smile use arc
         //sprites.renderingContext.arc(0, 15, 5, .2, 3);
         sprites.renderingContext.stroke();
-        
-        
-        
+            
         // STAN'S HAT
         sprites.renderingContext.fillStyle = "blue";
         sprites.renderingContext.beginPath();
@@ -85,9 +79,31 @@ $(function () {
         sprites.renderingContext.fill();
         sprites.renderingContext.stroke();
         
+        
+        
+        
+        // STAN'S SHIRT
+        sprites.renderingContext.fillStyle = "brown";
+        sprites.renderingContext.strokeStyle = "black";
+        sprites.renderingContext.beginPath();
+        // -----left arm
+        sprites.renderingContext.moveTo(-17, 25);
+        sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
+        sprites.renderingContext.quadraticCurveTo(-26, 50, -23, 50);
+        sprites.renderingContext.quadraticCurveTo(-23, 50, -24, 57);
+        sprites.renderingContext.quadraticCurveTo(0, 63, 24, 57);
+        sprites.renderingContext.quadraticCurveTo(23, 50, 23, 50);
+        sprites.renderingContext.quadraticCurveTo(24, 50, 30, 50);
+        sprites.renderingContext.quadraticCurveTo(30, 35, 17, 25);
+        
+        
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+
+        
     };
 
-    // Willy's white shirt
+    // STAN'S SHIRT
     window['sprites'].shirt = {
         x: sprites.willy.x,
         y: sprites.willy.y
@@ -96,11 +112,20 @@ $(function () {
     window['sprites'].drawWillyShirt = function () {
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.willy.x, sprites.willy.y);
-        sprites.renderingContext.fillStyle = "rgb(" + 250 + "," + 250 + "," + 250 + ")";
+        sprites.renderingContext.fillStyle = "brown";
         sprites.renderingContext.strokeStyle = "black";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.strokeRect(-37, 25, 75, 75);
-        sprites.renderingContext.fillRect(-37, 25, 75, 75);
+        sprites.renderingContext.moveTo(0, 30);
+        sprites.renderingContext.quadraticCurveTo(0, 0, -35, 80);
+        
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        
+        
+        //sprites.renderingContext.rect(0, 25, 150, 150);
+        //sprites.renderingContext.fillRect(0, 25, 150, 150);
+        
+
 
         sprites.renderingContext.restore();
 
