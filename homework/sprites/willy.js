@@ -14,8 +14,50 @@ $(function () {
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.willy.x, sprites.willy.y);
         sprites.renderingContext.scale(3, 3);
-        sprites.renderingContext.fillStyle = "rgb(" + fleshR + "," + fleshG + "," + fleshB + ")";
+        
+        
+        
+        
+        
+        // STAN'S SHIRT
+        sprites.renderingContext.fillStyle = "brown";
+        sprites.renderingContext.strokeStyle = "brown";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-17, 25);
+        sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
+        sprites.renderingContext.quadraticCurveTo(-26, 50, -23, 50);
+        sprites.renderingContext.quadraticCurveTo(-23, 50, -24, 57);
+        sprites.renderingContext.quadraticCurveTo(0, 63, 24, 57);
+        sprites.renderingContext.quadraticCurveTo(23, 50, 23, 50);
+        sprites.renderingContext.quadraticCurveTo(24, 50, 30, 50);
+        sprites.renderingContext.quadraticCurveTo(30, 35, 17, 25);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        // -----seem
         sprites.renderingContext.strokeStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(0, 25);
+        sprites.renderingContext.quadraticCurveTo(0, 0, 0, 60);
+        sprites.renderingContext.stroke();
+        // -----buttons
+        sprites.renderingContext.fillStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.arc(-3, 37, 1, 0, Math.PI * 2);
+        sprites.renderingContext.arc(5, 2, 1, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+
+        // -----collar
+        sprites.renderingContext.fillStyle = "red";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(17, 25);
+        sprites.renderingContext.quadraticCurveTo(0, 43, -17, 25);
+        sprites.renderingContext.fill();    
+
+
+        
+        
+        sprites.renderingContext.strokeStyle = "black";
+		sprites.renderingContext.fillStyle = "rgb(" + fleshR + "," + fleshG + "," + fleshB + ")";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.arc(0, 0, 30, 0, Math.PI * 2);
         sprites.renderingContext.fill();
@@ -82,24 +124,7 @@ $(function () {
         
         
         
-        // STAN'S SHIRT
-        sprites.renderingContext.fillStyle = "brown";
-        sprites.renderingContext.strokeStyle = "black";
-        sprites.renderingContext.beginPath();
-        // -----left arm
-        sprites.renderingContext.moveTo(-17, 25);
-        sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
-        sprites.renderingContext.quadraticCurveTo(-26, 50, -23, 50);
-        sprites.renderingContext.quadraticCurveTo(-23, 50, -24, 57);
-        sprites.renderingContext.quadraticCurveTo(0, 63, 24, 57);
-        sprites.renderingContext.quadraticCurveTo(23, 50, 23, 50);
-        sprites.renderingContext.quadraticCurveTo(24, 50, 30, 50);
-        sprites.renderingContext.quadraticCurveTo(30, 35, 17, 25);
         
-        
-        sprites.renderingContext.fill();
-        sprites.renderingContext.stroke();
-
         
     };
 
