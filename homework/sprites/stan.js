@@ -13,7 +13,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.stan.x, sprites.stan.y);
-        sprites.renderingContext.scale(3, 3);
+        sprites.renderingContext.scale(1, 1);
  
         // STAN'S PANTS
         sprites.renderingContext.fillStyle = "blue";
