@@ -16,7 +16,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-        sprites.renderingContext.scale(4, 6);
+        sprites.renderingContext.scale(2, 3);
  
         // MR HANKEY'S BODY
         sprites.renderingContext.strokeStyle = "black";
@@ -84,23 +84,41 @@ $(function () {
         sprites.renderingContext.quadraticCurveTo(0, 9, 9, 13);
         sprites.renderingContext.quadraticCurveTo(14, 9, 15, 5);
         sprites.renderingContext.quadraticCurveTo(0, 7, -15, 5);
-      //  sprites.renderingContext.quadraticCurveTo(0, 30, 15, 5);
-        //sprites.renderingContext.quadraticCurveTo(0, 7, -15, 5);
-        
-        
         sprites.renderingContext.fill();
-        
-        
-        
-        
-        
-        
-        
-        
-
                    
         // MR HANKEY'S HAT
         sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
         sprites.renderingContext.beginPath();
+        // -----base
+        sprites.renderingContext.moveTo(-25, -23);
+        sprites.renderingContext.quadraticCurveTo(0, -55, 25, -23);
+        
+        
+        
+        
+        sprites.renderingContext.fill();
+        // -----rim
+        sprites.renderingContext.fillStyle = "white";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-27, -15);
+        sprites.renderingContext.quadraticCurveTo(0, -20, 27, -15);
+        sprites.renderingContext.quadraticCurveTo(27, -20, 27, -22);
+        sprites.renderingContext.quadraticCurveTo(0, -27, -27, -22);
+        sprites.renderingContext.quadraticCurveTo(-27, -20, -27, -15);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        
     };    
 });
