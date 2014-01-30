@@ -120,10 +120,6 @@ $(function () {
         // KYLE'S HAT
         sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
         sprites.renderingContext.beginPath();
-        //sprites.renderingContext.moveTo(-27, -13);
-        //sprites.renderingContext.quadraticCurveTo(-16, -31, 0, -30);
-        //sprites.renderingContext.quadraticCurveTo(16, -31, 27, -13);
-        //sprites.renderingContext.fill();
         // -----hat base
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-30, -5);
