@@ -16,7 +16,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-        sprites.renderingContext.scale(2, 3);
+        sprites.renderingContext.scale(4, 6);
  
         // MR HANKEY'S BODY
         sprites.renderingContext.strokeStyle = "black";
@@ -53,11 +53,9 @@ $(function () {
         sprites.renderingContext.moveTo(-17, -10);
         sprites.renderingContext.lineTo(-10, -10);
         sprites.renderingContext.lineTo(-17, -5);
-        
         sprites.renderingContext.moveTo(1, -10);
         sprites.renderingContext.lineTo(8, -10);
         sprites.renderingContext.lineTo(1, -5);
-        
         sprites.renderingContext.fill();
         // -----bottom lids
         sprites.renderingContext.fillStyle = "rgb(" + fleshR + "," + fleshG + "," + fleshB + ")";
@@ -69,6 +67,36 @@ $(function () {
         sprites.renderingContext.stroke();
         sprites.renderingContext.quadraticCurveTo(0, 50, -23, 0);
         sprites.renderingContext.fill();
+        
+        //MR HANKEY'S SMILE
+        sprites.renderingContext.fillStyle = "red";
+        sprites.renderingContext.beginPath();
+        // -----tongue
+        sprites.renderingContext.moveTo(-15, 5);
+        sprites.renderingContext.quadraticCurveTo(0, 30, 15, 5);
+        sprites.renderingContext.quadraticCurveTo(0, 10, -15, 5);
+        sprites.renderingContext.fill();
+        // -----mouth
+        sprites.renderingContext.fillStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-15, 5);
+        sprites.renderingContext.quadraticCurveTo(-14, 9, -9, 13);
+        sprites.renderingContext.quadraticCurveTo(0, 9, 9, 13);
+        sprites.renderingContext.quadraticCurveTo(14, 9, 15, 5);
+        sprites.renderingContext.quadraticCurveTo(0, 7, -15, 5);
+      //  sprites.renderingContext.quadraticCurveTo(0, 30, 15, 5);
+        //sprites.renderingContext.quadraticCurveTo(0, 7, -15, 5);
+        
+        
+        sprites.renderingContext.fill();
+        
+        
+        
+        
+        
+        
+        
+        
 
                    
         // MR HANKEY'S HAT
