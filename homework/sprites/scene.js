@@ -5,8 +5,9 @@ $(function () {
     sprites.renderingContext = renderingContext;
 
     sprites.stan.x = 100;
-    sprites.kyle.x = 200;
-    sprites.kyle.y = 200;
+    sprites.stan.y = 100;
+    sprites.kyle.x = 100;
+    sprites.kyle.y = 0;
 
     sprites.drawStan();
     sprites.drawKyle();
