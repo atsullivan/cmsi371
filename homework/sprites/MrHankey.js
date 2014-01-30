@@ -16,8 +16,8 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-       // sprites.renderingContext.scale(.5, .75);
-        sprites.renderingContext.scale(2, 3);
+        sprites.renderingContext.scale(.5, .75);
+       // sprites.renderingContext.scale(2, 3);
         
         // MR HANKEY'S HAT(TAIL)
         sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
