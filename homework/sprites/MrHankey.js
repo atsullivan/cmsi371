@@ -16,7 +16,25 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-        sprites.renderingContext.scale(.5, .75);
+       // sprites.renderingContext.scale(.5, .75);
+        sprites.renderingContext.scale(2, 3);
+        
+        
+        
+        // MR HANKEY'S HAT(TAIL)
+        sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-25, -23);
+        sprites.renderingContext.quadraticCurveTo(-40, -15, -50, 10);
+        sprites.renderingContext.quadraticCurveTo(-43, 10, -45, 10);
+        sprites.renderingContext.quadraticCurveTo(-45, 10, -20, -10);
+        sprites.renderingContext.fill();
+        // -----ball
+        sprites.renderingContext.fillStyle = "white";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.arc(-47, 10, 6, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
  
         // MR HANKEY'S BODY
         sprites.renderingContext.strokeStyle = "black";
@@ -93,6 +111,8 @@ $(function () {
         sprites.renderingContext.moveTo(-25, -23);
         sprites.renderingContext.quadraticCurveTo(0, -55, 25, -23);
         sprites.renderingContext.fill();
+                
+        
         // -----rim
         sprites.renderingContext.fillStyle = "white";
         sprites.renderingContext.beginPath();
