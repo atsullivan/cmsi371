@@ -10,13 +10,22 @@ $(function () {
         var fleshR = 255,
             fleshG = 213,
             fleshB = 190;
+        var hatR = 62,
+            hatG = 227,
+            hatB = 16;
+        var pantR = 10,
+        	pantG = 112,
+        	pantB = 90;
+        var shirtR = 227,
+        	shirtG = 113,
+        	shirtB = 32;
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
         sprites.renderingContext.scale(3, 3);
  
         // KYLE'S PANTS
-        sprites.renderingContext.fillStyle = "green";
+        sprites.renderingContext.fillStyle = "rgb(" + pantR + "," + pantG + "," + pantB + ")";
         sprites.renderingContext.strokeStyle = "black";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-22, 58);
@@ -35,8 +44,8 @@ $(function () {
         sprites.renderingContext.fill();
  
         // KYLE'S SHIRT
-        sprites.renderingContext.fillStyle = "orange";
-        sprites.renderingContext.strokeStyle = "orange";
+        sprites.renderingContext.fillStyle = "rgb(" + shirtR + "," + shirtG + "," + shirtB + ")";
+        sprites.renderingContext.strokeStyle = "rgb(" + shirtR + "," + shirtG + "," + shirtB + ")";
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-20, 23);
         sprites.renderingContext.quadraticCurveTo(-30, 35, -30, 50);
@@ -109,33 +118,59 @@ $(function () {
         sprites.renderingContext.stroke();
             
         // KYLE'S HAT
-        sprites.renderingContext.fillStyle = "green";
+        sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
         sprites.renderingContext.beginPath();
         //sprites.renderingContext.moveTo(-27, -13);
         //sprites.renderingContext.quadraticCurveTo(-16, -31, 0, -30);
         //sprites.renderingContext.quadraticCurveTo(16, -31, 27, -13);
         //sprites.renderingContext.fill();
-        // -----hat rim
+        // -----hat base
         sprites.renderingContext.beginPath();
         sprites.renderingContext.moveTo(-30, -5);
         sprites.renderingContext.quadraticCurveTo(0, -16, 30, -5);
         sprites.renderingContext.quadraticCurveTo(30, -27, 30, -25);
         sprites.renderingContext.quadraticCurveTo(28, -30, 25, -30);
-        
-        
         sprites.renderingContext.quadraticCurveTo(-28, -30, -25, -30);
-        sprites.renderingContext.quadraticCurveTo(-28, -30, -30, -25);
-        
-        
+        sprites.renderingContext.quadraticCurveTo(-28, -30, -30, -25); 
         sprites.renderingContext.quadraticCurveTo(-30, -12, -30, -5);
         sprites.renderingContext.fill();
-        // -----hat ball
-        //sprites.renderingContext.beginPath();
-        //sprites.renderingContext.arc(0, -32, 5, 0, Math.PI * 2);
-        //sprites.renderingContext.fill();
+        // -----hat ears
+        sprites.renderingContext.beginPath();
+        
+        sprites.renderingContext.arc(-30, 8, 6, 0, Math.PI * 2);
+        sprites.renderingContext.moveTo(35, 5);
+        sprites.renderingContext.arc(30, 8, 6, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.beginPath();
+
+        
+        
+        sprites.renderingContext.moveTo(-25, 10);
+        sprites.renderingContext.quadraticCurveTo(-21, -25, -37, 7);
+        sprites.renderingContext.quadraticCurveTo(-38, 30, -25, 10);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        
+        sprites.renderingContext.moveTo(25, 10);
+        sprites.renderingContext.quadraticCurveTo(21, -25, 37, 7);
+        sprites.renderingContext.quadraticCurveTo(38, 30, 25, 10);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        
+        
+        // -----hat front
+        sprites.renderingContext.fillStyle = "green";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-25, -4);
+        sprites.renderingContext.quadraticCurveTo(0, -10, 25, -4);
+        sprites.renderingContext.quadraticCurveTo(25, -15, 25, -20);
+        sprites.renderingContext.quadraticCurveTo(0, -21, -25, -20);
+        
+        sprites.renderingContext.fill();
         
         //STAN'S HANDS
         sprites.renderingContext.beginPath();
+        sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
         // -----fists
         sprites.renderingContext.arc(-27, 50, 6, 0, Math.PI * 2);
         sprites.renderingContext.arc(27, 50, 6, 0, Math.PI * 2);
