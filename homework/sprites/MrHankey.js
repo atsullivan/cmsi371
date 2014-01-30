@@ -16,7 +16,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-        sprites.renderingContext.scale(1, 2);
+        sprites.renderingContext.scale(2, 3);
  
         // MR HANKEY'S BODY
         sprites.renderingContext.strokeStyle = "black";
@@ -44,8 +44,20 @@ $(function () {
         //-----center
         sprites.renderingContext.fillStyle = "black";
         sprites.renderingContext.beginPath();
-        sprites.renderingContext.arc(-9, -5, 6, 0, Math.PI * 2);
-        sprites.renderingContext.arc(9, -5, 6, 0, Math.PI * 2);
+        sprites.renderingContext.arc(-11, -8, 6, 0, Math.PI * 2);
+        sprites.renderingContext.arc(8, -8, 6, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        // -----reflection
+        sprites.renderingContext.fillStyle = "white";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-17, -10);
+        sprites.renderingContext.lineTo(-10, -10);
+        sprites.renderingContext.lineTo(-17, -5);
+        
+        sprites.renderingContext.moveTo(1, -10);
+        sprites.renderingContext.lineTo(8, -10);
+        sprites.renderingContext.lineTo(1, -5);
+        
         sprites.renderingContext.fill();
         // -----bottom lids
         sprites.renderingContext.fillStyle = "rgb(" + fleshR + "," + fleshG + "," + fleshB + ")";
