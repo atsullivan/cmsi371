@@ -145,6 +145,17 @@ $(function () {
         sprites.renderingContext.moveTo(-78, 25);
         sprites.renderingContext.quadraticCurveTo(-85, 23, -90, 20);
         sprites.renderingContext.quadraticCurveTo(-96, 10, -83, 13);
+        sprites.renderingContext.quadraticCurveTo(-70, 10, -71, 18);
+        
+        
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(78, 25);
+        sprites.renderingContext.quadraticCurveTo(85, 23, 90, 20);
+        sprites.renderingContext.quadraticCurveTo(96, 10, 83, 13);
+        sprites.renderingContext.quadraticCurveTo(70, 10, 71, 18);
         
         
         sprites.renderingContext.fill();
