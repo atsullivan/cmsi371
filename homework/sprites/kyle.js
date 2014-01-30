@@ -22,7 +22,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
-        sprites.renderingContext.scale(3, 3);
+        sprites.renderingContext.scale(1, 1);
  
         // KYLE'S PANTS
         sprites.renderingContext.fillStyle = "rgb(" + pantR + "," + pantG + "," + pantB + ")";
