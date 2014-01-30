@@ -8,7 +8,10 @@ $(function () {
     sprites.stan.y = 100;
     sprites.kyle.x = 100;
     sprites.kyle.y = 0;
+    sprites.mrhankey.x = 100;
+    
 
     sprites.drawStan();
     sprites.drawKyle();
+    sprites.drawMrHankey();
 });
