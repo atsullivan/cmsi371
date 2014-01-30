@@ -1,12 +1,12 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
-    window['sprites'].kyle = {
+    window['sprites'].mrhankey = {
         x: 50,
         y: 50,
     };
     
-    // Kyle Broflovski
-    window['sprites'].drawKyle = function () {
+    // Mr Hankey
+    window['sprites'].drawMrHankey = function () {
         var fleshR = 255,
             fleshG = 213,
             fleshB = 190;
@@ -21,7 +21,7 @@ $(function () {
         	shirtB = 32;
 
         sprites.renderingContext.save();
-        sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
+        sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
         sprites.renderingContext.scale(1, 1);
  
         // KYLE'S PANTS
