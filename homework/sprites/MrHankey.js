@@ -33,6 +33,30 @@ $(function () {
         sprites.renderingContext.arc(-20, 85, 15, 0, Math.PI * 2);
         sprites.renderingContext.arc(0, 85, 20, 0, Math.PI * 2);
         sprites.renderingContext.fill();
+        
+        // MR HANKEY'S EYES
+        sprites.renderingContext.fillStyle = "white";
+        sprites.renderingContext.beginPath();
+        //-----circles
+        sprites.renderingContext.arc(-10, -5, 10, 0, Math.PI * 2);
+        sprites.renderingContext.arc(8, -5, 10, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        //-----center
+        sprites.renderingContext.fillStyle = "black";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.arc(-9, -5, 6, 0, Math.PI * 2);
+        sprites.renderingContext.arc(9, -5, 6, 0, Math.PI * 2);
+        sprites.renderingContext.fill();
+        // -----bottom lids
+        sprites.renderingContext.fillStyle = "rgb(" + fleshR + "," + fleshG + "," + fleshB + ")";
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-23, 0);
+        sprites.renderingContext.quadraticCurveTo(-9, -5, 0, 0);
+        sprites.renderingContext.quadraticCurveTo(9, -5, 23, 0);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        sprites.renderingContext.quadraticCurveTo(0, 50, -23, 0);
+        sprites.renderingContext.fill();
 
                    
         // MR HANKEY'S HAT
