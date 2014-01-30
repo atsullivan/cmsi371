@@ -16,7 +16,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
-        sprites.renderingContext.scale(2, 3);
+        sprites.renderingContext.scale(.5, .75);
  
         // MR HANKEY'S BODY
         sprites.renderingContext.strokeStyle = "black";
@@ -30,7 +30,7 @@ $(function () {
         sprites.renderingContext.arc(0, 50, 30, 0, Math.PI * 2);
         // -----bottom
         sprites.renderingContext.arc(0, 100, 20, 0, Math.PI * 2);
-        sprites.renderingContext.arc(-20, 85, 15, 0, Math.PI * 2);
+        sprites.renderingContext.arc(0, 85, 25, 0, Math.PI * 2);
         sprites.renderingContext.arc(0, 85, 20, 0, Math.PI * 2);
         sprites.renderingContext.fill();
         
@@ -92,10 +92,6 @@ $(function () {
         // -----base
         sprites.renderingContext.moveTo(-25, -23);
         sprites.renderingContext.quadraticCurveTo(0, -55, 25, -23);
-        
-        
-        
-        
         sprites.renderingContext.fill();
         // -----rim
         sprites.renderingContext.fillStyle = "white";
@@ -105,10 +101,25 @@ $(function () {
         sprites.renderingContext.quadraticCurveTo(27, -20, 27, -22);
         sprites.renderingContext.quadraticCurveTo(0, -27, -27, -22);
         sprites.renderingContext.quadraticCurveTo(-27, -20, -27, -15);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
         
-        
-        
-        
+        //MR HANKEY'S ARMS
+        sprites.renderingContext.fillStyle = "black";
+        // -----right
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(28, 40);
+        sprites.renderingContext.lineTo(70, 22);
+        sprites.renderingContext.lineTo(72, 24);
+        sprites.renderingContext.lineTo(28, 43);
+        sprites.renderingContext.fill();
+        // -----left
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-28, 40);
+        sprites.renderingContext.lineTo(-70, 22);
+        sprites.renderingContext.lineTo(-72, 24);
+        sprites.renderingContext.lineTo(-28, 43);
+        sprites.renderingContext.fill();
         
         
         
@@ -118,7 +129,28 @@ $(function () {
         
         
         sprites.renderingContext.fill();
-        sprites.renderingContext.stroke();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     };    
 });
