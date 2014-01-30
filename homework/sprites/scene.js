@@ -9,7 +9,7 @@ $(function () {
     sprites.kyle.x = 100;
     sprites.kyle.y = 0;
     sprites.mrhankey.x = 200;
-    sprites.mrhankey.y = 200;
+    sprites.mrhankey.y = 50;
     
 
     sprites.drawStan();
