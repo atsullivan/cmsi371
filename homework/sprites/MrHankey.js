@@ -19,8 +19,6 @@ $(function () {
        // sprites.renderingContext.scale(.5, .75);
         sprites.renderingContext.scale(2, 3);
         
-        
-        
         // MR HANKEY'S HAT(TAIL)
         sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";
         sprites.renderingContext.beginPath();
@@ -140,15 +138,30 @@ $(function () {
         sprites.renderingContext.lineTo(-72, 24);
         sprites.renderingContext.lineTo(-28, 43);
         sprites.renderingContext.fill();
-        
-        
-        
-        
-        
-        
+        //MR HANKEY'S HANDS
+        sprites.renderingContext.fillStyle = "white";
+        // -----glove hands
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-78, 25);
+        sprites.renderingContext.quadraticCurveTo(-85, 23, -90, 20);
+        sprites.renderingContext.quadraticCurveTo(-96, 10, -83, 13);
         
         
         sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
+        // -----glove rims
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(-71, 18);
+        sprites.renderingContext.quadraticCurveTo(-78, 19, -78, 25);
+        sprites.renderingContext.quadraticCurveTo(-65, 25, -71, 18);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();        
+        sprites.renderingContext.beginPath();
+        sprites.renderingContext.moveTo(71, 18);
+        sprites.renderingContext.quadraticCurveTo(78, 19, 78, 25);
+        sprites.renderingContext.quadraticCurveTo(65, 25, 71, 18);
+        sprites.renderingContext.fill();
+        sprites.renderingContext.stroke();
         
         
         
