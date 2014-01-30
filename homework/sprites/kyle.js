@@ -136,28 +136,13 @@ $(function () {
         sprites.renderingContext.fill();
         // -----hat ears
         sprites.renderingContext.beginPath();
-        
-        sprites.renderingContext.arc(-30, 8, 6, 0, Math.PI * 2);
-        sprites.renderingContext.moveTo(35, 5);
-        sprites.renderingContext.arc(30, 8, 6, 0, Math.PI * 2);
-        sprites.renderingContext.fill();
-        sprites.renderingContext.beginPath();
-
-        
-        
         sprites.renderingContext.moveTo(-25, 10);
         sprites.renderingContext.quadraticCurveTo(-21, -25, -37, 7);
         sprites.renderingContext.quadraticCurveTo(-38, 30, -25, 10);
-        sprites.renderingContext.fill();
-        sprites.renderingContext.stroke();
-        
         sprites.renderingContext.moveTo(25, 10);
         sprites.renderingContext.quadraticCurveTo(21, -25, 37, 7);
         sprites.renderingContext.quadraticCurveTo(38, 30, 25, 10);
         sprites.renderingContext.fill();
-        sprites.renderingContext.stroke();
-        
-        
         // -----hat front
         sprites.renderingContext.fillStyle = "green";
         sprites.renderingContext.beginPath();
@@ -165,7 +150,6 @@ $(function () {
         sprites.renderingContext.quadraticCurveTo(0, -10, 25, -4);
         sprites.renderingContext.quadraticCurveTo(25, -15, 25, -20);
         sprites.renderingContext.quadraticCurveTo(0, -21, -25, -20);
-        
         sprites.renderingContext.fill();
         
         //STAN'S HANDS
