@@ -176,23 +176,23 @@ $(function () {
         
         
         
+
+    // JD: Why
         
         
         
         
+    // JD: all
         
         
         
         
+    // JD: this
         
         
         
         
-        
-        
-        
-        
-        
+    // JD: spaaaaaaace?
         
         
         

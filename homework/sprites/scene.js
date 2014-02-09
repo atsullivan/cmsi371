@@ -10,7 +10,8 @@ $(function () {
     sprites.kyle.y = 0;
     sprites.mrhankey.x = 100;
     sprites.mrhankey.y = 0;
-    
+
+    // JD: Nice show of data-drawing separation here.
 
     sprites.drawStan();
     sprites.drawKyle();
