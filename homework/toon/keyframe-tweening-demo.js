@@ -17,61 +17,34 @@ $(function () {
 
                     {
                         frame: 800,
-                        tx: 100,
+                        tx: 0,
                         ty: 0,
                       //  ease: KeyframeTweener.linear
                     }
                 ]
             },
 
-//            {
-//            	draw: sprites.drawStan,
-//            	
-//            	keyframes: [
-//                    {
-//                        frame: 80,
-//                        tx: 20,
-//                        ty: 50,
-//                        ease: KeyframeTweener.linear
-//                    },
-//
-//                    {
-//                        frame: 120,
-//                        tx: 20,
-//                        ty: 0,
-//                      //  ease: KeyframeTweener.linear
-//                    }
-//                ]
+            {
+            	draw: sprites.drawStan,
+            	
+            	keyframes: [
+                    {
+                        frame: 0,
+                        tx: 0,
+                        ty: 0,
+                      //  ease: KeyframeTweener.linear
+                    },
 
-                //draw: circle,
-//                keyframes: [
-//                    {
-//                        frame: 50,
-//                        tx: 300,
-//                        ty: 600,
-//                        sx: 0.5,
-//                        sy: 0.5,
-//                        ease: KeyframeTweener.quadEaseOut
-//                    },
-//
-//                    {
-//                        frame: 100,
-//                        tx: 300,
-//                        ty: 0,
-//                        sx: 3,
-//                        sy: 0.25,
-//                        ease: KeyframeTweener.quadEaseOut
-//                    },
-//
-//                    {
-//                        frame: 150,
-//                        tx: 300,
-//                        ty: 600,
-//                        sx: 0.5,
-//                        sy: 0.5
-//                    }
-//                ]
-            //}
+                    {
+                        frame: 800,
+                        tx: 0,
+                        ty: 0,
+                      //  ease: KeyframeTweener.linear
+                    }
+                ]
+
+             
+            }
         ];
 
     // Finally, we initialize the engine.  Mainly, it needs
