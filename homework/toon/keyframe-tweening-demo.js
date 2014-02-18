@@ -4,15 +4,6 @@
  */
 $(function () {
     var canvas = document.getElementById("canvas"),
-
-        // First, a selection of "drawing functions" from which we
-        // can choose.  Their common trait: they all accept a single
-        // renderingContext argument.
-        // Then, we have "easing functions" that determine how
-        // intermediate frames are computed.
-
-        // Now, to actually define the animated sprites.  Each sprite
-        // has a drawing function and an array of keyframes.
         racers = [
             {
             	draw: sprites.drawKyle,               
@@ -21,15 +12,16 @@ $(function () {
                     {
                         frame: 0,
                         tx: 20,
-                        ty: 20,
+                        ty: 50,
                         ease: KeyframeTweener.linear
                     },
 
                     {
-                        frame: 30,
+                        frame: 7,
                         tx: 100,
                         ty: 50,
-                        ease: KeyframeTweener.quadEaseInOut
+                      // ease: KeyframeTweener.linear
+                       // ease: KeyframeTweener.quadEaseInOut
                     },
 
                     // The last keyframe does not need an easing function.
@@ -37,7 +29,7 @@ $(function () {
                         frame: 80,
                         tx: 80,
                         ty: 500,
-                        rotate: 60 // Keyframe.rotate uses degrees.
+                   //     rotate: 60 // Keyframe.rotate uses degrees.
                     }
                 ]
             },
