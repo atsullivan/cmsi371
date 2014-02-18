@@ -51,14 +51,13 @@ $(function () {
                         frame: 0,
                         tx: 0,
                         ty: 0,
-                     //   ease: KeyframeTweener.linear
+                      //  ease: KeyframeTweener.easeInOutElastic
                     },
 
                     {
                         frame: 800,
                         tx: 0,
                         ty: 0,
-                      //  ease: KeyframeTweener.linear
                     }
                 ]
             },
