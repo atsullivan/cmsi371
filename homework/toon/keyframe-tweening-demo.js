@@ -10,15 +10,15 @@ $(function () {
                 keyframes: [
                     {
                         frame: 0,
-                        tx: 100,
-                        ty: 50,
+                        tx: 0,
+                        ty: 0,
                      //   ease: KeyframeTweener.linear
                     },
 
                     {
                         frame: 800,
                         tx: 100,
-                        ty: 50,
+                        ty: 0,
                       //  ease: KeyframeTweener.linear
                     }
                 ]
