@@ -1,7 +1,7 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
     window['sprites'].stan = {
-        x: 50,
+        x: 130,
         y: 50,
     };
     
