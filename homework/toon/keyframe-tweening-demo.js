@@ -10,16 +10,13 @@ $(function () {
                 keyframes: [
                     {
                         frame: 0,
-//                        tx: 100,
-//                        ty: 313,
                         tx: 0,
-                        ty: 0,
+                        ty: 0
+
                     },
 
                     {
                         frame: 800,
-//                        tx: 300,
-//                        ty: 313
                         tx: 0,
                         ty: 0
                     } 
@@ -32,16 +29,13 @@ $(function () {
             	keyframes: [
                     {
                         frame: 0,
-//                        tx: 270,
-//                        ty: 313,
                         tx: 0,
                         ty: 0
+
                     },
 
                     {
                         frame: 800,
-//                        tx: 270,
-//                        ty: 313
                         tx: 0,
                         ty: 0
                     } 
@@ -52,10 +46,9 @@ $(function () {
                 keyframes: [
                     {
                         frame: 0,
-//                        tx: 300,
-//                        ty: -600,
-                        tx: 0,
-                        ty: 0,
+                        tx:0,
+                        ty:0,
+
                         ease: KeyframeTweener.linear
                     },
 
