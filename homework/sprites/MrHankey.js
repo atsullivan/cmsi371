@@ -1,8 +1,8 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
     window['sprites'].mrhankey = {
-        x: 50,
-        y: 50,
+        x: 950,
+        y: 355,
     };
     
     // Mr Hankey
@@ -17,7 +17,7 @@ $(function () {
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
         sprites.renderingContext.scale(.5, .75);
-       // sprites.renderingContext.scale(2, 3);
+       // sprites.renderingContext.scale(1, 1.5);
         
         // MR HANKEY'S HAT(TAIL)
         sprites.renderingContext.fillStyle = "rgb(" + hatR + "," + hatG + "," + hatB + ")";

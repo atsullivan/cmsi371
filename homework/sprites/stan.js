@@ -1,8 +1,8 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
     window['sprites'].stan = {
-        x: 130,
-        y: 50,
+        x: 270,
+        y: 313,
     };
     
     // STAN MARSH
@@ -13,7 +13,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.stan.x, sprites.stan.y);
-        sprites.renderingContext.scale(1, 1);
+        sprites.renderingContext.scale(2, 2);
  
         // STAN'S PANTS
         sprites.renderingContext.fillStyle = "blue";

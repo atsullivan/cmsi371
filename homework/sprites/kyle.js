@@ -1,12 +1,12 @@
 $(function () {
     window['sprites'] = window['sprites'] || {};
     window['sprites'].kyle = {
-        x: 50,
-        y: 50,
+        x: 100,
+        y: 313,
     };
     
     // Kyle Broflovski
-    window['sprites'].drawKyle = function () {
+    window['sprites'].drawKyle = function (renderingContext) {
         var fleshR = 255,
             fleshG = 213,
             fleshB = 190;
@@ -22,7 +22,7 @@ $(function () {
 
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
-        sprites.renderingContext.scale(1, 1);
+        sprites.renderingContext.scale(2, 2);
  
         // KYLE'S PANTS
         sprites.renderingContext.fillStyle = "rgb(" + pantR + "," + pantG + "," + pantB + ")";
