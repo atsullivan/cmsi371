@@ -10,16 +10,16 @@ $(function () {
                 keyframes: [
                     {
                         frame: 0,
-                        tx: 20,
+                        tx: 100,
                         ty: 50,
-                        ease: KeyframeTweener.linear
+                     //   ease: KeyframeTweener.linear
                     },
 
                     {
-                        frame: 40,
-                        tx: 30,
+                        frame: 800,
+                        tx: 100,
                         ty: 50,
-                        ease: KeyframeTweener.linear
+                      //  ease: KeyframeTweener.linear
                     }
                 ]
             },
