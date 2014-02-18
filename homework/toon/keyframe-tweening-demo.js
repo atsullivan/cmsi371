@@ -4,24 +4,25 @@
  */
 $(function () {
     var canvas = document.getElementById("canvas"),
-        racers = [
+        characters = [
             {
             	draw: sprites.drawKyle,               
                 keyframes: [
                     {
                         frame: 0,
+//                        tx: 100,
+//                        ty: 313,
                         tx: 0,
                         ty: 0,
-                     //   ease: KeyframeTweener.linear
                     },
 
                     {
                         frame: 800,
+//                        tx: 300,
+//                        ty: 313
                         tx: 0,
-                        ty: 0,
-                      //  ease: KeyframeTweener.linear
-                    }
-                    
+                        ty: 0
+                    } 
                 ]
             },
 
@@ -31,16 +32,18 @@ $(function () {
             	keyframes: [
                     {
                         frame: 0,
+//                        tx: 270,
+//                        ty: 313,
                         tx: 0,
-                        ty: 0,
-                      //  ease: KeyframeTweener.linear
+                        ty: 0
                     },
 
                     {
                         frame: 800,
+//                        tx: 270,
+//                        ty: 313
                         tx: 0,
-                        ty: 0,
-                      //  ease: KeyframeTweener.linear
+                        ty: 0
                     } 
                   ]  
             },
@@ -49,18 +52,20 @@ $(function () {
                 keyframes: [
                     {
                         frame: 0,
+//                        tx: 300,
+//                        ty: -600,
                         tx: 0,
                         ty: 0,
-                      //  ease: KeyframeTweener.easeInOutElastic
+                        ease: KeyframeTweener.linear
                     },
 
                     {
                         frame: 800,
                         tx: 0,
-                        ty: 0,
+                        ty: 0
                     }
                 ]
-            },
+            }
 
         ];
 
@@ -72,7 +77,7 @@ $(function () {
         renderingContext: sprites.renderingContext,
         width: canvas.width,
         height: canvas.height,
-        sprites: racers,
+        sprites: characters,
         background: function (renderingContext) {
             var streetR = 86,
                 streetG = 92,
