@@ -175,7 +175,7 @@ $(function () {
         sprites.renderingContext.fill();
         sprites.renderingContext.stroke();
         
-        
+        sprites.renderingContext.restore();
         
 
     // JD: Why

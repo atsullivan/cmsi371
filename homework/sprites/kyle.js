@@ -161,6 +161,8 @@ $(function () {
         sprites.renderingContext.arc(-23, 48, 3, 0, Math.PI * 2);
         sprites.renderingContext.moveTo(26, 48);
         sprites.renderingContext.arc(23, 48, 3, 0, Math.PI * 2);
-        sprites.renderingContext.fill();     
+        sprites.renderingContext.fill();
+        
+        sprites.renderingContext.restore();     
     };    
 });
