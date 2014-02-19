@@ -11,15 +11,23 @@ $(function () {
                     {
                         frame: 0,
                         tx: 0,
-                        ty: 0
+                        ty: 0,
+                         ease: KeyframeTweener.linear
 
                     },
 
                     {
-                        frame: 800,
+                        frame: 150,
                         tx: 0,
                         ty: 0
+                    },
+                    
+                    {
+                        frame: 200,
+                        tx: 0,
+                        ty: 500
                     } 
+ 
                 ]
             },
 
@@ -35,28 +43,45 @@ $(function () {
                     },
 
                     {
-                        frame: 800,
+                        frame: 150,
                         tx: 0,
                         ty: 0
+                    },
+                    
+                    {
+                        frame: 200,
+                        tx: 0,
+                        ty: 500
                     } 
+ 
+ 
                   ]  
             },
             {
             	draw: sprites.drawMrHankey,               
                 keyframes: [
                     {
-                        frame: 0,
-                        tx:0,
+                        frame: 50,
+                        tx:100,
                         ty:0,
 
-                        ease: KeyframeTweener.linear
+                        ease: KeyframeTweener.easeInBounce
                     },
 
                     {
-                        frame: 800,
-                        tx: 0,
+                        frame: 100,
+                        tx: -500,
                         ty: 0
-                    }
+                    },
+                    
+                    {
+                        frame: 300,
+                        tx:-500,
+                        ty:0,
+
+                        ease: KeyframeTweener.easeInBounce
+                    },
+
                 ]
             }
 
