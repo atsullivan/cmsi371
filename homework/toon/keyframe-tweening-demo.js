@@ -65,7 +65,7 @@ $(function () {
                         tx:100,
                         ty:0,
 
-                        ease: KeyframeTweener.easeInBounce
+                        ease: KeyframeTweener.quadEaseInAndOut
                     },
 
                     {
