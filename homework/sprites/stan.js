@@ -11,6 +11,7 @@ $(function () {
             fleshG = 213,
             fleshB = 190;
 
+        // JD: You have a save here...but no restore at the end.
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.stan.x, sprites.stan.y);
         sprites.renderingContext.scale(2, 2);

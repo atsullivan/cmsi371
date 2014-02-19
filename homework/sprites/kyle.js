@@ -20,6 +20,7 @@ $(function () {
         	shirtG = 113,
         	shirtB = 32;
 
+        // JD: You have a save here...but no restore at the end.
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.kyle.x, sprites.kyle.y);
         sprites.renderingContext.scale(2, 2);

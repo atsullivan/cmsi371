@@ -14,6 +14,7 @@ $(function () {
             hatG = 9,
             hatB = 11;
 
+        // JD: You have a save here...but no restore at the end.
         sprites.renderingContext.save();
         sprites.renderingContext.translate(sprites.mrhankey.x, sprites.mrhankey.y);
         sprites.renderingContext.scale(.5, .75);
