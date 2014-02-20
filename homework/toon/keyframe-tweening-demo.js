@@ -66,6 +66,7 @@ $(function () {
                         ty:0,
 
                         ease: KeyframeTweener.quadEaseInAndOut
+                        //ease: KeyframeTweener.quinticEaseIn
                     },
 
                     {
