@@ -3,6 +3,7 @@ $(function () {
     window['sprites'].mrhankey = {
         x: 950,
         y: 355,
+        x:0,y:0
     };
     
     // Mr Hankey

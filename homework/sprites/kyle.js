@@ -3,6 +3,8 @@ $(function () {
     window['sprites'].kyle = {
         x: 100,
         y: 313,
+        
+        x:0,y:0
     };
     
     // Kyle Broflovski

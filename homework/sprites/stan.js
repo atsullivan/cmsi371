@@ -3,6 +3,7 @@ $(function () {
     window['sprites'].stan = {
         x: 270,
         y: 313,
+        x:0,y:0
     };
     
     // STAN MARSH
