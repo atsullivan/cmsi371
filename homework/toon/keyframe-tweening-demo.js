@@ -4,28 +4,30 @@
  */
 $(function () {
     var canvas = document.getElementById("canvas"),
+
+        // JD: I adjusted the character translations for you.
         characters = [
             {
             	draw: sprites.drawKyle,               
                 keyframes: [
                     {
                         frame: 0,
-                        tx: 0,
-                        ty: 0,
+                        tx: 100,//0,
+                        ty: 313,//0,
                          ease: KeyframeTweener.linear
 
                     },
 
                     {
                         frame: 150,
-                        tx: 0,
-                        ty: 0
+                        tx: 100,//0,
+                        ty: 313//0
                     },
                     
                     {
                         frame: 200,
-                        tx: 0,
-                        ty: 500
+                        tx: 100,//0,
+                        ty: 813//500
                     } 
  
                 ]
@@ -37,21 +39,21 @@ $(function () {
             	keyframes: [
                     {
                         frame: 0,
-                        tx: 0,
-                        ty: 0
+                        tx: 270,//0,
+                        ty: 313//0
 
                     },
 
                     {
                         frame: 150,
-                        tx: 0,
-                        ty: 0
+                        tx: 270,//0,
+                        ty: 313//0
                     },
                     
                     {
                         frame: 200,
-                        tx: 0,
-                        ty: 500
+                        tx: 270,//0,
+                        ty: 813//500
                     } 
  
  
@@ -62,8 +64,8 @@ $(function () {
                 keyframes: [
                     {
                         frame: 50,
-                        tx:100,
-                        ty:0,
+                        tx: 1050,//100,
+                        ty: 355,//0,
 
                         ease: KeyframeTweener.quadEaseInAndOut
                         //ease: KeyframeTweener.quinticEaseIn
@@ -71,14 +73,14 @@ $(function () {
 
                     {
                         frame: 100,
-                        tx: -500,
-                        ty: 0
+                        tx: 450,//-500,
+                        ty: 355,//0
                     },
                     
                     {
                         frame: 300,
-                        tx:-500,
-                        ty:0,
+                        tx:450,//-500,
+                        ty:355,//0,
 
                         ease: KeyframeTweener.easeInBounce
                     },

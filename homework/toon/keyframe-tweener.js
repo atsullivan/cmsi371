@@ -32,6 +32,10 @@ var KeyframeTweener = {
         return start+distance*(tc*ts);
     },
 
+    // JD: Note that the assignment wanted *two* new easing functions.
+    //     I'll let you off easy here because I know that you used to
+    //     have a whole bunch here; you could have very easily added
+    //     one more into this final version.
 
     // The big one: animation initialization.  The settings parameter
     // is expected to be a JavaScript object with the following
@@ -148,6 +152,8 @@ var KeyframeTweener = {
                         renderingContext.rotate(
                             ease(currentTweenFrame, rotateStart, rotateDistance, duration)
                         );
+
+                        // JD: Missing custom tweening callback.
 
                         // Draw the sprite.
                         sprites[i].draw(renderingContext);
