@@ -25,7 +25,9 @@ var KeyframeTweener = {
                 (distance / 2) * percentComplete * percentComplete + start :
                 (-distance / 2) * ((percentComplete - 1) * (percentComplete - 3) - 1) + start;
     },
-   	
+
+    // JD: Space recommended after "function" plus between arithmetic operands
+    //     (see the example easing implementations).
 	quinticEaseIn: function(currentTime, start, distance, duration) {
         var ts = (currentTime/=duration)*currentTime;
         var tc = ts*currentTime;
