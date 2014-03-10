@@ -24,6 +24,15 @@ var NanoshopNeighborhood = {
             rgbaNeighborhood[4].a
         ];
     },
+    
+    fade: function (rgbaNeighborhood) {
+        return [
+            (rgbaNeighborhood[1].r+rgbaNeighborhood[2].r+rgbaNeighborhood[3].r+rgbaNeighborhood[4].r)/4 ,
+            (rgbaNeighborhood[1].g+rgbaNeighborhood[2].g+rgbaNeighborhood[3].g+rgbaNeighborhood[4].g)/4 ,
+            (rgbaNeighborhood[1].b+rgbaNeighborhood[2].b+rgbaNeighborhood[3].b+rgbaNeighborhood[4].b)/4 ,
+            rgbaNeighborhood[4].a
+        ];
+    },
 
 
     /*

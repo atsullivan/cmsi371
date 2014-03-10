@@ -105,6 +105,18 @@
             0, 0
         );
     });
+     $("#fade-button").click(function () {
+        // Filter time.
+        renderingContext.putImageData(
+            NanoshopNeighborhood.applyFilter(
+                renderingContext,
+                renderingContext.getImageData(0, 0, canvas.width, canvas.height),
+                NanoshopNeighborhood.fade
+            ),
+            0, 0
+        );
+    });
+
 
     
     
