@@ -15,6 +15,16 @@ var NanoshopNeighborhood = {
             rgbaNeighborhood[4].a
         ];
     },
+    
+    reverse: function (rgbaNeighborhood) {
+        return [
+            rgbaNeighborhood[4].b ,
+            rgbaNeighborhood[4].g ,
+            rgbaNeighborhood[4].r ,
+            rgbaNeighborhood[4].a
+        ];
+    },
+
 
     /*
      * A basic "averager"---this one returns the average of all the pixels in the
