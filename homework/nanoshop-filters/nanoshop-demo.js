@@ -51,6 +51,7 @@
     // (end of adapted code by Tyler Nichols)
 
     // Set a little event handler to apply the filter.
+    // JD: Why did you keep this here?  Blow it away :)
 //    $("#apply-filter-button").click(function () {
 //        // Filter time.
 //        renderingContext.putImageData(
@@ -64,13 +65,17 @@
 //            0, 0
 //        );
 //    });
+
+    // JD: These are both technically correct, but you missed the last requested step,
+    //     which was to make these a part of the actual Nanoshop module (kind of like
+    //     the easing functions).  Better for reusability.
     $("#blackandwhite-button").click(function () {
         // Filter time.
         renderingContext.putImageData(
             Nanoshop.applyFilter(
                 renderingContext.getImageData(0, 0, canvas.width, canvas.height),
                 function (r, g, b, a) {
-                    var average = (r + b + g)/3;
+                    var average = (r + b + g)/3; // JD: Preferrably space around "/".
                     return[average, average, average, a];
                 }
             ),
@@ -83,6 +88,7 @@
             Nanoshop.applyFilter(
                 renderingContext.getImageData(0, 0, canvas.width, canvas.height),
                 // This is a basic "darkener."
+                // JD: ^^^^^ Bad copy-paste.
                 function (r, g, b, a) {
                     return [r * 1.2, g * 1.2, b * 1.2, a];
                 }

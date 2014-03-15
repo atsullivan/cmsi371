@@ -15,7 +15,9 @@ var NanoshopNeighborhood = {
             rgbaNeighborhood[4].a
         ];
     },
-    
+
+    // JD: This is a filter, sure, but it does not take advantage of the neighborhood.
+    //     Weakens your implementation somewhat.
     reverse: function (rgbaNeighborhood) {
         return [
             rgbaNeighborhood[4].b ,
@@ -24,7 +26,11 @@ var NanoshopNeighborhood = {
             rgbaNeighborhood[4].a
         ];
     },
-    
+
+    // JD: I can see, computationally, what you are doing here, but the intended effect
+    //     is unclear and the name you gave the function ("fade") does not really shed
+    //     any light on this.  At least you do (somewhat) make use of the neighborhood
+    //     that is given to you.
     fade: function (rgbaNeighborhood) {
         return [
             (rgbaNeighborhood[1].r+rgbaNeighborhood[2].r+rgbaNeighborhood[3].r+rgbaNeighborhood[4].r)/4 ,

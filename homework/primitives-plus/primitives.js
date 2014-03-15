@@ -251,10 +251,12 @@ var Primitives = {
             count = 1;
 
         color = color || [0, 0, 0];
-        dash = dash | 0;
+        dash = dash | 0; // JD: I think you mean dash || 0.
         
-        while (true) {          
-            if (count % ( dash + 1) != 0) {
+        while (true) {
+            // JD: Sometimes you have a space after a left paren, sometimes not.
+            //     Stay consistent.
+            if (count % ( dash + 1) != 0) { // JD: JavaScript protip: you don't need "!= 0".
                 this.setPixel(context, x, y, color[0], color[1], color[2]);
             }
             
@@ -281,10 +283,13 @@ var Primitives = {
      */
     plotCirclePoints: function (context, xc, yc, x, y, color, color2) {
         var color = color || [0, 0, 0],
-        	color2 = color2 || [0,0,0],
+        	color2 = color2 || [0,0,0], // JD: Keep your spacing consistent.
         	aveR = (color[0] + color2[0])/2,
             aveG = (color[1] + color2[1])/2,
             aveB = (color[2] + color2[2])/2;
+
+        // JD: In a way you don't need these anymore---these draw the outline,
+        //     which is not really needed for this variant of circle drawing.
         this.setPixel(context, xc + x, yc + y, color[0], color[1], color[2]);
         this.setPixel(context, xc + x, yc - y, color[0], color[1], color[2]);
         this.setPixel(context, xc + y, yc + x, color[0], color[1], color[2]);
@@ -293,9 +298,11 @@ var Primitives = {
         this.setPixel(context, xc - x, yc - y, color[0], color[1], color[2]);
         this.setPixel(context, xc - y, yc + x, color[0], color[1], color[2]);
         this.setPixel(context, xc - y, yc - x, color[0], color[1], color[2]);
-        
+
+        // JD: Interesting; I have not seen this approach before, but it works.
         //right half
         for(var a = xc, i = 0; a <= (xc + x); a++, i++){
+            // JD: ^^^^^Space after "for," space between ")" and "{" please.
             this.setPixel(context, a, yc + y, aveR < color[0] ? aveR+i : aveR-i,
                                               aveG < color[1] ? aveG+i : aveG-i,
                                               aveB < color[2] ? aveB+i : aveB-i);
