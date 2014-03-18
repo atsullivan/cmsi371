@@ -7,6 +7,8 @@ var Shapes = {
     /*
      * Returns the vertices for a small icosahedron.
      */
+    
+    //FIRST CUBE
     cube: function () {
         var vertices = [],
             indices = [];
@@ -53,6 +55,7 @@ var Shapes = {
         }
 
     },
+	//SECOND CUBE
 	cube2: function () {
 		return {
 			vertices: [
@@ -104,42 +107,6 @@ var Shapes = {
 			  ]		
 		};
 	},  
-    
-    cylinder: function () {
-
-        var vertices = [],
-            indices = [];
-        // First Circle
-        vertices.push([0.0, 0.5, 0.0]);
-        for (var theta = 0; theta < (Math.PI * 2); theta += (Math.PI / 16)){
-            vertices.push([0.5 * Math.cos(theta), 0.5, 0.5 * Math.sin(theta)])
-        }
-        
-        for (var i = 1; i <= 32; i++){
-            indices.push([0, i, (i == 32) ? 1 : (i + 1)]);
-        }
-        
-        // Second Circle
-        vertices.push([0.0, -0.5, 0.0]);
-        for (var theta = 0; theta < (Math.PI * 2); theta += (Math.PI / 16)){
-            vertices.push([0.5 * Math.cos(theta), -0.5, 0.5 * Math.sin(theta)])
-        }
-        
-        for (var i = 33; i <= 65; i++){
-            indices.push([33, i, (i == 65) ? 34 : (i + 1)]);
-        }
-        
-        //Connecting the circles.
-        for (var i = 1; i <= 33; i++){
-            indices.push([i, i + 1, i + 33]);
-            indices.push([i, i + 32, i + 33]);
-        }
-        
-        return {
-            vertices: vertices,
-            indices: indices
-        }
-    },
 
     toRawTriangleArray: function (indexedVertices) {
         var result = [],
