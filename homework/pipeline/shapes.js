@@ -55,6 +55,44 @@ var Shapes = {
         }
 
     },
+    
+    //PYRAMID
+	pyramid: function () {
+		var vertices = [],
+            indices = [],
+            i = 0;
+		vertices.push(
+	        [0.0,  0.5,  0.0],
+	        [-0.5, -0.5,  0.5],
+	        [0.5, -0.5,  0.5],
+	        [0.0,  0.5,  0.0],
+	        [0.5, -0.5,  0.5],
+	        [0.5, -0.5, -0.5],
+	        [0.0,  0.5,  0.0],
+	        [0.5, -0.5, -0.5],
+	        [-0.5, -0.5, -0.5],
+	        [ 0.0,  0.5,  0.0],
+	        [-0.5, -0.5, -0.5],
+	        [-0.5, -0.5,  0.5],
+		    [-0.5, -0.5, -0.5],
+		    [0.5, -0.5, -0.5],
+		    [0.5, -0.5, 0.5],
+		    [-0.5, -0.5, 0.5]
+		);
+		
+		while (i < 12) {		    
+		    indices.push([i, i+1, i+2])
+		    i = i+3;
+		  }
+		
+		indices.push([12, 13, 14]);
+		indices.push([12, 14, 15]);		
+		return {
+            vertices: vertices,
+            indices: indices
+        }
+	},  
+
 	//SECOND CUBE
 	cube2: function () {
 		return {
@@ -108,6 +146,7 @@ var Shapes = {
 		};
 	},  
 
+	
     toRawTriangleArray: function (indexedVertices) {
         var result = [],
             i,
