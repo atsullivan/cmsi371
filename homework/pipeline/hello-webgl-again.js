@@ -126,8 +126,8 @@
     objectsToDraw = [
         {
             color: { r: 0.0, g: 0.5, b: 0.0 },
-           // vertices: Shapes.toRawTriangleArray(Shapes.cube2()),
             vertices: Shapes.toRawTriangleArray(Shapes.pyramid()),
+            vertices: Shapes.toRawTriangleArray(Shapes.sphere(.5, 16, 16)),
             mode: gl.TRIANGLES
         }
     ];
