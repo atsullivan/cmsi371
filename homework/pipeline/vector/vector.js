@@ -92,115 +92,123 @@ var Vector = (function () {
     
     vector.rotate = function (ang, x, y, z) {
     	
-    }
+    };
     
     vector.ortho = function (r, l, t, b, n, f) {
-    	
-    }
+    	var w = r-l,
+    		h = t-b,
+    		d = f-n;
+    	return new Vector(
+    		(2/w),0,0,(-((r+l)/w)),
+    		0,(2/h),(-((t+b)/h),
+    		0,0,(-2/d),(-((f+n)/d),
+    		0,0,0,1
+    		);
+    };
     
     vector.frustum = function (r, l, t, b, n, f) {
     	
-    }
+    };
     
     
     
     
 
-    vector.prototype.subtract = function (v) {
-        var result = new Vector(),
-            i,
-            max;
-
-        // Dimensionality check.
-        checkDimensions(this, v);
-
-        for (i = 0, max = this.dimensions(); i < max; i += 1) {
-            result.elements[i] = this.elements[i] - v.elements[i];
-        }
-
-        return result;
-    };
-
-    // Scalar multiplication and division.
-    vector.prototype.multiply = function (s) {
-        var result = new Vector(),
-            i,
-            max;
-
-        for (i = 0, max = this.dimensions(); i < max; i += 1) {
-            result.elements[i] = this.elements[i] * s;
-        }
-
-        return result;
-    };
-
-    vector.prototype.divide = function (s) {
-        var result = new Vector(),
-            i,
-            max;
-
-        for (i = 0, max = this.dimensions(); i < max; i += 1) {
-            result.elements[i] = this.elements[i] / s;
-        }
-
-        return result;
-    };
-
-    // Dot product.
-    vector.prototype.dot = function (v) {
-        var result = 0,
-            i,
-            max;
-
-        // Dimensionality check.
-        checkDimensions(this, v);
-
-        for (i = 0, max = this.dimensions(); i < max; i += 1) {
-            result += this.elements[i] * v.elements[i];
-        }
-
-        return result;
-    };
-
-    // Cross product.
-    vector.prototype.cross = function (v) {
-        // This method is for 3D vectors only.
-        if (this.dimensions() !== 3 || v.dimensions() !== 3) {
-            throw "Cross product is for 3D vectors only.";
-        }
-
-        // With 3D vectors, we can just return the result directly.
-        return new Vector(
-            (this.y() * v.z()) - (this.z() * v.y()),
-            (this.z() * v.x()) - (this.x() * v.z()),
-            (this.x() * v.y()) - (this.y() * v.x())
-        );
-    };
-
-    // Magnitude and unit vector.
-    vector.prototype.magnitude = function () {
-        // Make use of the dot product.
-        return Math.sqrt(this.dot(this));
-    };
-
-    vector.prototype.unit = function () {
-        // At this point, we can leverage our more "primitive" methods.
-        return this.divide(this.magnitude());
-    };
-
-    // Projection.
-    vector.prototype.projection = function (v) {
-        var unitv;
-
-        // Dimensionality check.
-        checkDimensions(this, v);
-
-        // Plug and chug :)
-        // The projection of u onto v is u dot the unit vector of v
-        // times the unit vector of v.
-        unitv = v.unit();
-        return unitv.multiply(this.dot(unitv));
-    };
+//    vector.prototype.subtract = function (v) {
+//        var result = new Vector(),
+//            i,
+//            max;
+//
+//        // Dimensionality check.
+//        checkDimensions(this, v);
+//
+//        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+//            result.elements[i] = this.elements[i] - v.elements[i];
+//        }
+//
+//        return result;
+//    };
+//
+//    // Scalar multiplication and division.
+//    vector.prototype.multiply = function (s) {
+//        var result = new Vector(),
+//            i,
+//            max;
+//
+//        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+//            result.elements[i] = this.elements[i] * s;
+//        }
+//
+//        return result;
+//    };
+//
+//    vector.prototype.divide = function (s) {
+//        var result = new Vector(),
+//            i,
+//            max;
+//
+//        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+//            result.elements[i] = this.elements[i] / s;
+//        }
+//
+//        return result;
+//    };
+//
+//    // Dot product.
+//    vector.prototype.dot = function (v) {
+//        var result = 0,
+//            i,
+//            max;
+//
+//        // Dimensionality check.
+//        checkDimensions(this, v);
+//
+//        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+//            result += this.elements[i] * v.elements[i];
+//        }
+//
+//        return result;
+//    };
+//
+//    // Cross product.
+//    vector.prototype.cross = function (v) {
+//        // This method is for 3D vectors only.
+//        if (this.dimensions() !== 3 || v.dimensions() !== 3) {
+//            throw "Cross product is for 3D vectors only.";
+//        }
+//
+//        // With 3D vectors, we can just return the result directly.
+//        return new Vector(
+//            (this.y() * v.z()) - (this.z() * v.y()),
+//            (this.z() * v.x()) - (this.x() * v.z()),
+//            (this.x() * v.y()) - (this.y() * v.x())
+//        );
+//    };
+//
+//    // Magnitude and unit vector.
+//    vector.prototype.magnitude = function () {
+//        // Make use of the dot product.
+//        return Math.sqrt(this.dot(this));
+//    };
+//
+//    vector.prototype.unit = function () {
+//        // At this point, we can leverage our more "primitive" methods.
+//        return this.divide(this.magnitude());
+//    };
+//
+//    // Projection.
+//    vector.prototype.projection = function (v) {
+//        var unitv;
+//
+//        // Dimensionality check.
+//        checkDimensions(this, v);
+//
+//        // Plug and chug :)
+//        // The projection of u onto v is u dot the unit vector of v
+//        // times the unit vector of v.
+//        unitv = v.unit();
+//        return unitv.multiply(this.dot(unitv));
+//    };
 
     return vector;
 })();
