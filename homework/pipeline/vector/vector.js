@@ -107,7 +107,15 @@ var Vector = (function () {
     };
     
     vector.frustum = function (r, l, t, b, n, f) {
-    	
+    	var w = r-l,
+    		h = t-b,
+    		d = f-n;
+    	return new Vector(
+    		((2*n)/w),0,((r+l)/w),0,
+    		0,((2*n)/h),((t+b)/h),0,
+    		0,0,(-((f+n)/d),(-((2*n*f)/d),
+    		0,0,-1,0
+    		);
     };
     
     
