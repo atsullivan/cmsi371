@@ -14,7 +14,11 @@
 var Vector = (function () {
     // Define the constructor.
     var vector = function () {
-        this.elements = [].slice.call(arguments);
+        this.elements = [].slice.call(arguments):
+        	[1,0,0,0,
+        	 0,1,0,0,
+        	 0,0,1,0,
+        	 0,0,0,1];
     },
     
         // A private method for checking dimensions,
@@ -30,37 +34,77 @@ var Vector = (function () {
         return this.elements.length;
     };
 
-    vector.prototype.x = function () {
-        return this.elements[0];
-    };
+//    vector.prototype.x = function () {
+//        return this.elements[0];
+//    };
+//
+//    vector.prototype.y = function () {
+//        return this.elements[1];
+//    };
+//
+//    vector.prototype.z = function () {
+//        return this.elements[2];
+//    };
+//
+//    vector.prototype.w = function () {
+//        return this.elements[3];
+//    };
 
-    vector.prototype.y = function () {
-        return this.elements[1];
-    };
-
-    vector.prototype.z = function () {
-        return this.elements[2];
-    };
-
-    vector.prototype.w = function () {
-        return this.elements[3];
-    };
-
-    // Addition and subtraction.
-    vector.prototype.add = function (v) {
+    // Multiplication.
+    vector.prototype.multiply = function (v) {
         var result = new Vector(),
-            i,
-            max;
+            row,
+            col,
+            sum;
 
         // Dimensionality check.
         checkDimensions(this, v);
 
-        for (i = 0, max = this.dimensions(); i < max; i += 1) {
-            result.elements[i] = this.elements[i] + v.elements[i];
+        for (row = 0, row = 4; row++) {
+        	for (col = 0; col < 4; col++) {
+        		sum = 0;
+        		for (i = 0; i < 4; i++) {
+        			sum += this.elements[row * 4 + i] * v.elements[i * 4 + col];
+        		}
+        		result.elements[row * 4 + col] = sum;
+        	}
         }
-
         return result;
     };
+    
+    
+    vector.translate = function (dx, dy, dz) {
+    	return new Vector(
+    		1,0,0,dex,
+    		0,1,0,dy,
+    		0,0,0.dz,
+    		0,0,0,1
+    		);
+    };
+    
+    vector.scale = function (sx, sy, sz) {
+    	return new Vector(
+    		sx,0,0,0,
+    		0,sy,0,0,
+    		0,0,0,1
+    		);
+    };
+    
+    vector.rotate = function (ang, x, y, z) {
+    	
+    }
+    
+    vector.ortho = function (r, l, t, b, n, f) {
+    	
+    }
+    
+    vector.frustum = function (r, l, t, b, n, f) {
+    	
+    }
+    
+    
+    
+    
 
     vector.prototype.subtract = function (v) {
         var result = new Vector(),
