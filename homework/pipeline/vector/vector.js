@@ -118,7 +118,17 @@ var Vector = (function () {
     		);
     };
     
+    vector.prototype.conversion = function () {
+    	var result = [];
+    	for (var i = 0; i < 4; i++) {
+    		result.push(this.elements[i], this.elements[i+4], this.elements[i+8], this.elements[i+12]);
+    	}
+    	return result;
+    };
     
+    vector.elements = function () {
+    	return this.elements;
+    };
     
     
 
