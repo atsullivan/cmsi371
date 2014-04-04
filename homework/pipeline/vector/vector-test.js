@@ -1,201 +1,258 @@
 /*
- * Unit tests for our vector object.
+ * Unit tests for our matrix object.
  */
+
 $(function () {
 
     // This suite checks instantiation basics.
     test("Creation and Data Access", function () {
-        var v = new Vector(5, 6, 3);
+        var v = new Vector();
 
-        equal(v.dimensions(), 3, "Vector size");
-        equal(v.elements[0], 5, "First element by index");
-        equal(v.elements[1], 6, "Second element by index");
-        equal(v.elements[2], 3, "Third element by index");
-        equal(v.x(), 5, "First element by coordinate");
-        equal(v.y(), 6, "Second element by coordinate");
-        equal(v.z(), 3, "Third element by coordinate");
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], 1, "First element by index");
+        equal(v.elements[1], 0, "Second element by index");
+        equal(v.elements[2], 0, "Third element by index");
+        equal(v.elements[3], 0, "Fourth element by index");
+        equal(v.elements[4], 0, "Fifth element by index");
+        equal(v.elements[5], 1, "Sixth element by index");
+        equal(v.elements[6], 0, "Seventh element by index");
+        equal(v.elements[7], 0, "Eighth element by index");
+        equal(v.elements[8], 0, "Ninth element by index");
+        equal(v.elements[9], 0, "Tenth element by index");
+        equal(v.elements[10], 1, "Eleventh element by index");
+        equal(v.elements[11], 0, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], 0, "Fifteenth element by index");
+        equal(v.elements[15], 1, "Sixteenth element by index");
 
-        v = new Vector(300, 200);
+        v = new Vector(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3);
 
-        equal(v.dimensions(), 2, "Vector size");
-        equal(v.elements[0], 300, "First element by index");
-        equal(v.elements[1], 200, "Second element by index");
-        equal(v.x(), 300, "First element by coordinate");
-        equal(v.y(), 200, "Second element by coordinate");
-
-        v = new Vector(3, 2, 1, 2);
-
-        equal(v.dimensions(), 4, "Vector size");
+        equal(v.dimensions(), 16, "Matrix size");
         equal(v.elements[0], 3, "First element by index");
-        equal(v.elements[1], 2, "Second element by index");
-        equal(v.elements[2], 1, "Third element by index");
-        equal(v.elements[3], 2, "Fourth element by index");
-        equal(v.x(), 3, "First element by coordinate");
-        equal(v.y(), 2, "Second element by coordinate");
-        equal(v.z(), 1, "Third element by coordinate");
-        equal(v.w(), 2, "Fourth element by coordinate");
+        equal(v.elements[1], 1, "Second element by index");
+        equal(v.elements[2], 4, "Third element by index");
+        equal(v.elements[3], 1, "Fourth element by index");
+        equal(v.elements[4], 5, "Fifth element by index");
+        equal(v.elements[5], 9, "Sixth element by index");
+        equal(v.elements[6], 2, "Seventh element by index");
+        equal(v.elements[7], 6, "Eighth element by index");
+        equal(v.elements[8], 5, "Ninth element by index");
+        equal(v.elements[9], 3, "Tenth element by index");
+        equal(v.elements[10], 5, "Eleventh element by index");
+        equal(v.elements[11], 8, "Twelfth element by index");
+        equal(v.elements[12], 9, "Thirteenth element by index");
+        equal(v.elements[13], 7, "Fourteenth element by index");
+        equal(v.elements[14], 9, "Fifteenth element by index");
+        equal(v.elements[15], 3, "Sixteenth element by index");
 
-        v = new Vector();
-        equal(v.dimensions(), 0, "Empty vector (boundary case)");
+        var v1 = v.conversion();
+        equal(v1[0], 3, "First element by index");
+        equal(v1[1], 5, "First element by index");
+        equal(v1[2], 5, "First element by index");
+        equal(v1[3], 9, "First element by index");
+        equal(v1[4], 1, "First element by index");
+        equal(v1[5], 9, "First element by index");
+        equal(v1[6], 3, "First element by index");
+        equal(v1[7], 7, "First element by index");
+        equal(v1[8], 4, "First element by index");
+        equal(v1[9], 2, "First element by index");
+        equal(v1[10], 5, "First element by index");
+        equal(v1[11], 9, "First element by index");
+        equal(v1[12], 1, "First element by index");
+        equal(v1[13], 6, "First element by index");
+        equal(v1[14], 8, "First element by index");
+        equal(v1[15], 3, "First element by index");
+        
     });
 
-    test("Addition and Subtraction", function () {
-        var v1 = new Vector(4, 5),
-            v2 = new Vector(-10, 4),
-            vresult = v1.add(v2);
+    test("Multiplication", function () {
+        var v1 = new Vector(),
+            v2 = new Vector(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3),
+            v3 = v1.multiply(v2);
+        
+        equal(v3.dimensions(), 16, "Matrix size");
+        equal(v3.elements[0], 3, "First element by index");
+        equal(v3.elements[1], 1, "Second element by index");
+        equal(v3.elements[2], 4, "Third element by index");
+        equal(v3.elements[3], 1, "Fourth element by index");
+        equal(v3.elements[4], 5, "Fifth element by index");
+        equal(v3.elements[5], 9, "Sixth element by index");
+        equal(v3.elements[6], 2, "Seventh element by index");
+        equal(v3.elements[7], 6, "Eighth element by index");
+        equal(v3.elements[8], 5, "Ninth element by index");
+        equal(v3.elements[9], 3, "Tenth element by index");
+        equal(v3.elements[10], 5, "Eleventh element by index");
+        equal(v3.elements[11], 8, "Twelfth element by index");
+        equal(v3.elements[12], 9, "Thirteenth element by index");
+        equal(v3.elements[13], 7, "Fourteenth element by index");
+        equal(v3.elements[14], 9, "Fifteenth element by index");
+        equal(v3.elements[15], 3, "Sixteenth element by index");
 
-        equal(vresult.dimensions(), 2, "Vector sum size check");
-        equal(vresult.x(), -6, "Vector sum first element");
-        equal(vresult.y(), 9, "Vector sum second element");
+        v1 = new Vector(3, 0, 3, 4, 4, 7, 9, 1, 0, 1, 9, 7, 4, 8, 2, 4);
+        v3 = v1.multiply(v2);
 
-        v1 = new Vector(0, -2, 3, 5);
-        v2 = new Vector(-2, 1, 0, 7);
-        vresult = v1.subtract(v2);
-        equal(vresult.dimensions(), 4, "Vector difference size check");
-        equal(vresult.x(), 2, "Vector difference first element");
-        equal(vresult.y(), -3, "Vector difference second element");
-        equal(vresult.z(), 3, "Vector difference third element");
-        equal(vresult.w(), -2, "Vector difference fourth element");
+        equal(v3.dimensions(), 16, "Matrix size");
+        equal(v3.elements[0], 60, "First element by index");
+        equal(v3.elements[1], 40, "Second element by index");
+        equal(v3.elements[2], 63, "Third element by index");
+        equal(v3.elements[3], 39, "Fourth element by index");
+        equal(v3.elements[4], 101, "Fifth element by index");
+        equal(v3.elements[5], 101, "Sixth element by index");
+        equal(v3.elements[6], 84, "Seventh element by index");
+        equal(v3.elements[7], 121, "Eighth element by index");
+        equal(v3.elements[8], 113, "Ninth element by index");
+        equal(v3.elements[9], 85, "Tenth element by index");
+        equal(v3.elements[10], 110, "Eleventh element by index");
+        equal(v3.elements[11], 99, "Twelfth element by index");
+        equal(v3.elements[12], 98, "Thirteenth element by index");
+        equal(v3.elements[13], 110, "Fourteenth element by index");
+        equal(v3.elements[14], 78, "Fifteenth element by index");
+        equal(v3.elements[15], 80, "Sixteenth element by index");
 
-        // Check for errors.
-        v1 = new Vector(5, 8, 10, 2);
-        v2 = new Vector(1, 2, 2);
+        v2 = new Vector(0, 2, 2, 2, 7, 3, 2, 9, 0, 3, 8, 5, 1, 6, 3, 1);
+        v3 = v1.multiply(v2);
 
-        // We can actually check for a *specific* exception, but
-        // we won't go that far for now.
+        equal(v3.dimensions(), 16, "Matrix size");
+        equal(v3.elements[0], 4, "First element by index");
+        equal(v3.elements[1], 39, "Second element by index");
+        equal(v3.elements[2], 42, "Third element by index");
+        equal(v3.elements[3], 25, "Fourth element by index");
+        equal(v3.elements[4], 50, "Fifth element by index");
+        equal(v3.elements[5], 62, "Sixth element by index");
+        equal(v3.elements[6], 97, "Seventh element by index");
+        equal(v3.elements[7], 117, "Eighth element by index");
+        equal(v3.elements[8], 14, "Ninth element by index");
+        equal(v3.elements[9], 72, "Tenth element by index");
+        equal(v3.elements[10], 95, "Eleventh element by index");
+        equal(v3.elements[11], 61, "Twelfth element by index");
+        equal(v3.elements[12], 60, "Thirteenth element by index");
+        equal(v3.elements[13], 62, "Fourteenth element by index");
+        equal(v3.elements[14], 52, "Fifteenth element by index");
+        equal(v3.elements[15], 94, "Sixteenth element by index");
+
+
+
+        v2 = new Vector(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 0, 0, 0, 1);
+
         throws(
             function () {
-                return v1.add(v2);
+                return v1.multiply(v2);
             },
-            "Check for vectors of different sizes"
-        );
-    });
-
-    test("Scalar Multiplication and Division", function () {
-        var v = new Vector(8, 2, 3),
-            vresult = v.multiply(2);
-
-        equal(vresult.x(), 16, "Vector scalar multiplication first element");
-        equal(vresult.y(), 4, "Vector scalar multiplication second element");
-        equal(vresult.z(), 6, "Vector scalar multiplication third element");
-
-        vresult = vresult.divide(4);
-
-        equal(vresult.x(), 4, "Vector scalar division first element");
-        equal(vresult.y(), 1, "Vector scalar division second element");
-        equal(vresult.z(), 1.5, "Vector scalar division third element");
-    });
-
-    test("Dot Product", function () {
-        var v1 = new Vector(-5, -2),
-            v2 = new Vector(-3, 4);
-
-        equal(v1.dot(v2), 7, "2D dot product");
-
-        // Try for a perpendicular.
-        v1 = new Vector(Math.sqrt(2) / 2, Math.sqrt(2) / 2);
-        v2 = new Vector(-Math.sqrt(2) / 2, Math.sqrt(2) / 2);
-        equal(v1.dot(v2), 0, "Perpendicular 2D dot product");
-
-        // Try 3D.
-        v1 = new Vector(3, 2, 5);
-        v2 = new Vector(4, -1, 3);
-        equal(v1.dot(v2), 25, "3D dot product");
-
-        // And 4D.
-        v1 = new Vector(2, 2, 4, 8);
-        v2 = new Vector(-1, 7, 0, 20);
-        equal(v1.dot(v2), 172, "4D dot product");
-
-        // Check for errors.
-        v1 = new Vector(4, 2);
-        v2 = new Vector(3, 9, 1);
-
-        // We can actually check for a *specific* exception, but
-        // we won't go that far for now.
-        throws(
-            function () {
-                return v1.dot(v2);
-            },
-            "Check for vectors of different sizes"
-        );
-    });
-
-    test("Cross Product", function () {
-        var v1 = new Vector(3, 4),
-            v2 = new Vector(1, 2),
-            vresult;
-
-        // The cross product is restricted to 3D, so we start
-        // with an error check.
-        throws(
-            function () {
-                return v1.cross(v2);
-            },
-            "Check for non-3D vectors"
+            "Check for wrong-dimensioned matrices"
         );
 
-        // Yeah, this is a bit of a trivial case.  But it at least
-        // establishes the right-handedness of a cross-product.
-        v1 = new Vector(1, 0, 0);
-        v2 = new Vector(0, 1, 0);
-        vresult = v1.cross(v2);
-
-        equal(vresult.x(), 0, "Cross product first element");
-        equal(vresult.y(), 0, "Cross product second element");
-        equal(vresult.z(), 1, "Cross product third element");
-
-        // This one shows that switching vector order produces
-        // the opposite-pointing normal.
-        vresult = v2.cross(v1);
-
-        equal(vresult.x(), 0, "Cross product first element");
-        equal(vresult.y(), 0, "Cross product second element");
-        equal(vresult.z(), -1, "Cross product third element");
     });
 
-    test("Magnitude and Unit Vectors", function () {
-        var v = new Vector(3, 4);
+    test("Transformations", function() {
 
-        // The classic example.
-        equal(v.magnitude(), 5, "2D magnitude check");
+        var v = Vector.translate(3,3,3);
 
-        // Kind of a cheat, but still tests the third dimension.
-        v = new Vector(5, 0, 12);
-        equal(v.magnitude(), 13, "3D magnitude check");
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], 1, "First element by index");
+        equal(v.elements[1], 0, "Second element by index");
+        equal(v.elements[2], 0, "Third element by index");
+        equal(v.elements[3], 3, "Fourth element by index");
+        equal(v.elements[4], 0, "Fifth element by index");
+        equal(v.elements[5], 1, "Sixth element by index");
+        equal(v.elements[6], 0, "Seventh element by index");
+        equal(v.elements[7], 3, "Eighth element by index");
+        equal(v.elements[8], 0, "Ninth element by index");
+        equal(v.elements[9], 0, "Tenth element by index");
+        equal(v.elements[10], 1, "Eleventh element by index");
+        equal(v.elements[11], 3, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], 0, "Fifteenth element by index");
+        equal(v.elements[15], 1, "Sixteenth element by index");
 
-        // Now for unit vectors.
-        v = (new Vector(3, 4)).unit();
 
-        equal(v.magnitude(), 1, "2D unit vector check");
-        equal(v.x(), 3 / 5, "2D unit vector first element");
-        equal(v.y(), 4 / 5, "2D unit vector second element");
+        v = Vector.scale(3, 1, 4);
 
-        v = (new Vector(0, -7, 24)).unit();
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], 3, "First element by index");
+        equal(v.elements[1], 0, "Second element by index");
+        equal(v.elements[2], 0, "Third element by index");
+        equal(v.elements[3], 0, "Fourth element by index");
+        equal(v.elements[4], 0, "Fifth element by index");
+        equal(v.elements[5], 1, "Sixth element by index");
+        equal(v.elements[6], 0, "Seventh element by index");
+        equal(v.elements[7], 0, "Eighth element by index");
+        equal(v.elements[8], 0, "Ninth element by index");
+        equal(v.elements[9], 0, "Tenth element by index");
+        equal(v.elements[10], 4, "Eleventh element by index");
+        equal(v.elements[11], 0, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], 0, "Fifteenth element by index");
+        equal(v.elements[15], 1, "Sixteenth element by index");
 
-        equal(v.magnitude(), 1, "3D unit vector check");
-        equal(v.x(), 0, "3D unit vector first element");
-        equal(v.y(), -7 / 25, "3D unit vector second element");
-        equal(v.z(), 24 / 25, "3D unit vector third element");
+        v = Vector.rotate(180, .5, -.5, .5);
+
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], -0.33333333333333315, "First element by index");
+        equal(v.elements[1], -0.666666666666667, "Second element by index");
+        equal(v.elements[2], 0.6666666666666667, "Third element by index");
+        equal(v.elements[3], 0, "Fourth element by index");
+        equal(v.elements[4], -0.6666666666666667, "Fifth element by index");
+        equal(v.elements[5], -0.33333333333333315, "Sixth element by index");
+        equal(v.elements[6], -0.666666666666667, "Seventh element by index");
+        equal(v.elements[7], 0, "Eighth element by index");
+        equal(v.elements[8], 0.666666666666667, "Ninth element by index");
+        equal(v.elements[9], -0.6666666666666667, "Tenth element by index");
+        equal(v.elements[10], -0.33333333333333315, "Eleventh element by index");
+        equal(v.elements[11], 0, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], 0, "Fifteenth element by index");
+        equal(v.elements[15], 1, "Sixteenth element by index");
+
+
+
     });
 
-    test("Projection", function () {
-        var v = new Vector(3, 3, 0),
-            vresult = v.projection(new Vector(5, 0, 0));
+    test("Projections", function() {
+        var v = Vector.frustum(2, -2, 2, -2, -2, 2);
 
-        equal(vresult.magnitude(), 3, "3D vector projection magnitude check");
-        equal(vresult.x(), 3, "3D vector projection first element");
-        equal(vresult.y(), 0, "3D vector projection second element");
-        equal(vresult.z(), 0, "3D vector projection third element");
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], -1, "First element by index");
+        equal(v.elements[1], 0, "Second element by index");
+        equal(v.elements[2], 0, "Third element by index");
+        equal(v.elements[3], 0, "Fourth element by index");
+        equal(v.elements[4], 0, "Fifth element by index");
+        equal(v.elements[5], -1, "Sixth element by index");
+        equal(v.elements[6], 0, "Seventh element by index");
+        equal(v.elements[7], 0, "Eighth element by index");
+        equal(v.elements[8], 0, "Ninth element by index");
+        equal(v.elements[9], 0, "Tenth element by index");
+        equal(v.elements[10], 0, "Eleventh element by index");
+        equal(v.elements[11], 2, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], -1, "Fifteenth element by index");
+        equal(v.elements[15], 0, "Sixteenth element by index");
 
-        // Error check: projection only applies to vectors with the same
-        // number of dimensions.
-        throws(
-            function () {
-                (new Vector(5, 2)).projection(new Vector(9, 8, 1));
-            },
-            "Ensure that projection applies only to vectors with the same number of dimensions"
-        );
+        v = Vector.ortho(2, -2, 2, -2, -2, 2);
+
+        equal(v.dimensions(), 16, "Matrix size");
+        equal(v.elements[0], 0.5, "First element by index");
+        equal(v.elements[1], 0, "Second element by index");
+        equal(v.elements[2], 0, "Third element by index");
+        equal(v.elements[3], 0, "Fourth element by index");
+        equal(v.elements[4], 0, "Fifth element by index");
+        equal(v.elements[5], 0.5, "Sixth element by index");
+        equal(v.elements[6], 0, "Seventh element by index");
+        equal(v.elements[7], 0, "Eighth element by index");
+        equal(v.elements[8], 0, "Ninth element by index");
+        equal(v.elements[9], 0, "Tenth element by index");
+        equal(v.elements[10], -0.5, "Eleventh element by index");
+        equal(v.elements[11], 0, "Twelfth element by index");
+        equal(v.elements[12], 0, "Thirteenth element by index");
+        equal(v.elements[13], 0, "Fourteenth element by index");
+        equal(v.elements[14], 0, "Fifteenth element by index");
+        equal(v.elements[15], 1, "Sixteenth element by index");
+
     });
+    
 
 });
