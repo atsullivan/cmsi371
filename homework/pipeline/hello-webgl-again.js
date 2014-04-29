@@ -21,9 +21,15 @@
         // Important state variables.
         currentRotation = 0.0,
         currentInterval,
+        projectionMatrix,
         rotationMatrix,
         vertexPosition,
         vertexColor,
+
+        // Lighting variables
+        normalVector,
+        lightPosition,
+        lightDiffuse,
 
         // An individual "draw object" function.
         drawObject,
@@ -46,7 +52,7 @@
          * Based on the original glRotate reference:
          *     http://www.opengl.org/sdk/docs/man/xhtml/glRotate.xml
          */
-        getRotationMatrix = function (angle, x, y, z) {
+        rotate = function (angle, x, y, z) {
             // In production code, this function should be associated
             // with a matrix object with associated functions.
             var axisLength = Math.sqrt((x * x) + (y * y) + (z * z)),
@@ -126,10 +132,12 @@
     objectsToDraw = [
         {
             color: { r: 0.0, g: 0.5, b: 0.0 },
-            vertices: Shapes.toRawTriangleArray(Shapes.cube2()),
-            vertices: Shapes.toRawTriangleArray(Shapes.pyramid()),
-            vertices: Shapes.toRawTriangleArray(Shapes.sphere(.5, 16, 16)),
-            mode: gl.TRIANGLES
+            color: { r: 0.4, g: 0.7, b: 0.8 },
+            //vertices: Shapes.toRawTriangleArray(Shapes.cube2()),
+            //vertices: Shapes.toRawTriangleArray(Shapes.pyramid()),
+            vertices: Shapes.toRawTriangleArray(Shapes.sphere(2, 32, 32)),
+            mode: gl.TRIANGLES,
+            normals: Shapes.toVertexNormalArray(Shapes.sphere(2, 32, 32))
         }
     ];
 
@@ -151,8 +159,9 @@
                 );
             }
         }
-        objectsToDraw[i].colorBuffer = GLSLUtilities.initVertexBuffer(gl,
-                objectsToDraw[i].colors);
+        objectsToDraw[i].colorBuffer = GLSLUtilities.initVertexBuffer(gl, objectsToDraw[i].colors);
+        console.log(objectsToDraw[i].normals);
+        objectsToDraw[i].normalBuffer = GLSLUtilities.initVertexBuffer(gl, objectsToDraw[i].normals);
     }
 
     // Initialize the shaders.
@@ -189,7 +198,42 @@
     gl.enableVertexAttribArray(vertexPosition);
     vertexColor = gl.getAttribLocation(shaderProgram, "vertexColor");
     gl.enableVertexAttribArray(vertexColor);
+    normalVector = gl.getAttribLocation(shaderProgram, "normalVector");
+    gl.enableVertexAttribArray(normalVector);
     rotationMatrix = gl.getUniformLocation(shaderProgram, "rotationMatrix");
+    projectionMatrix = gl.getUniformLocation(shaderProgram, "projectionMatrix");
+    var translationMatrix = gl.getUniformLocation(shaderProgram, "translationMatrix");
+    var scaleMatrix = gl.getUniformLocation(shaderProgram, "scaleMatrix");
+    var cameraMatrix = gl.getUniformLocation(shaderProgram, "cameraMatrix");
+
+    // Lighting matrices initialized
+    lightPosition = gl.getUniformLocation(shaderProgram, "lightPosition");
+    lightDiffuse = gl.getUniformLocation(shaderProgram, "lightDiffuse");
+
+
+    // Initialize projection matrix
+    gl.uniformMatrix4fv(projectionMatrix, 
+        gl.FALSE, 
+        new Float32Array(Matrix4x4.frustum(-2, 2, 2, -2, 15, 5000).conversion())
+    );
+
+    // Initialize scale matrix
+    gl.uniformMatrix4fv(scaleMatrix, 
+        gl.FALSE, 
+        new Float32Array(Matrix4x4.scale(1, 1, 1).conversion())
+    );
+
+    // Initialize translation matrix
+    gl.uniformMatrix4fv(translationMatrix, 
+        gl.FALSE, 
+        new Float32Array(Matrix4x4.translate(0, 0, 0).conversion())
+    );
+
+    // Initialize camera matrix
+    gl.uniformMatrix4fv(cameraMatrix,
+        gl.FALSE,
+        new Float32Array(Matrix4x4.look(0, 0, 20, 0, 0, 0, 0, 1, 0).conversion())
+    );
 
     /*
      * Displays an individual object.
@@ -198,6 +242,34 @@
         // Set the varying colors.
         gl.bindBuffer(gl.ARRAY_BUFFER, object.colorBuffer);
         gl.vertexAttribPointer(vertexColor, 3, gl.FLOAT, false, 0, 0);
+
+        // Build our instance transformation matrix.
+        var instanceMatrix = new Matrix4x4();
+
+        // Translate, scale, and rotate
+        instanceMatrix = instanceMatrix.multiply(
+            Matrix4x4.translate(
+                object.tx || 0, object.ty || 0, object.tz || 0
+            ).multiply(
+                Matrix4x4.scale(
+                    object.sx || 1, object.sy || 1, object.sz || 1
+                ).multiply(
+                    Matrix4x4.rotate(
+                        object.angle || 0, object.rx || 1, object.ry || 1, object.rz || 1
+                    )
+                )
+            )
+        );
+
+        // Set it.
+        gl.uniformMatrix4fv(gl.getUniformLocation(shaderProgram, "instanceMatrix"),
+            gl.FALSE,
+            new Float32Array(instanceMatrix.conversion())
+        );
+
+        // Set the varying normal vectors.
+        gl.bindBuffer(gl.ARRAY_BUFFER, object.normalBuffer);
+        gl.vertexAttribPointer(normalVector, 3, gl.FLOAT, false, 0, 0);
 
         // Set the varying vertex coordinates.
         gl.bindBuffer(gl.ARRAY_BUFFER, object.buffer);
@@ -220,7 +292,7 @@
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
         // Set up the rotation matrix.
-        gl.uniformMatrix4fv(rotationMatrix, gl.FALSE, new Float32Array(getRotationMatrix(currentRotation, 1, 1, 0)));
+        gl.uniformMatrix4fv(rotationMatrix, gl.FALSE, new Float32Array(rotate(currentRotation, 1, 1, 0)));
 
 
         // Display the objects.
@@ -231,6 +303,10 @@
         // All done.
         gl.flush();
     };
+
+    // Set up our one light source and color.  Note the uniform3fv function.
+    gl.uniform3fv(lightPosition, [10.0, 10.0, 10.0]);
+    gl.uniform3fv(lightDiffuse, [1.0, 1.0, 1.0]);
 
     // Draw the initial scene.
     drawScene();
