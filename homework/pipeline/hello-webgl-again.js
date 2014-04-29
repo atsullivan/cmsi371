@@ -132,7 +132,6 @@
     objectsToDraw = [
         {
             color: { r: 0.0, g: 0.5, b: 0.0 },
-            color: { r: 0.4, g: 0.7, b: 0.8 },
             //vertices: Shapes.toRawTriangleArray(Shapes.cube2()),
             //vertices: Shapes.toRawTriangleArray(Shapes.pyramid()),
             vertices: Shapes.toRawTriangleArray(Shapes.sphere(2, 32, 32)),
