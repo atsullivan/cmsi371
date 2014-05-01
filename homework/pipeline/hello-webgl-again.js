@@ -274,7 +274,10 @@
         gl.bindBuffer(gl.ARRAY_BUFFER, object.buffer);
         gl.vertexAttribPointer(vertexPosition, 3, gl.FLOAT, false, 0, 0);
         gl.drawArrays(object.mode, 0, object.vertices.length / 3);
-        
+
+        // JD: You had the right idea here for one part of the shape-group
+        //     functionality.  But you need a little more...
+
         // Recrusively draw subobjects/children of objects, if they exist
          if (object.subobjects && object.subobjects.length > 0) {
              for (var i = 0; i < subobjects.length; i++) {
