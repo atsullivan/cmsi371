@@ -287,15 +287,6 @@ var Shapes = {
         return result;
     },
 
-
-
-
-
-
-
-
-
-
 /*
      * Another utility function for computing normals, this time just converting
      * every vertex into its unit vector version.  This works mainly for objects
@@ -324,6 +315,4 @@ var Shapes = {
 
         return result;
     }
-
-
 };
