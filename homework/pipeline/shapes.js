@@ -94,13 +94,7 @@ var Shapes = {
         }
 
     },
-
-    // JD: I was wondering why the indentation in your pyramid and cube2
-    //     functions suddenly started having inconsistencies, and then I
-    //     realized...TAAAAAAAAAAABS!!!
-    //
-    //     Please make your editor use spaces only.
-
+    
     //PYRAMID
 	pyramid: function () {
 		var vertices = [],
