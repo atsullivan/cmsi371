@@ -14,11 +14,7 @@
 var Vector = (function () {
     // Define the constructor.
     var vector = function () {
-        this.elements = arguments.length > 0 ? [].slice.call(arguments):
-        	[1,0,0,0,
-        	 0,1,0,0,
-        	 0,0,1,0,
-        	 0,0,0,1];
+        this.elements = [].slice.call(arguments);
     },
     
         // A private method for checking dimensions,
@@ -34,109 +30,132 @@ var Vector = (function () {
         return this.elements.length;
     };
 
-    // Multiplication.
-    vector.prototype.multiply = function (v) {
+    vector.prototype.x = function () {
+        return this.elements[0];
+    };
+
+    vector.prototype.y = function () {
+        return this.elements[1];
+    };
+
+    vector.prototype.z = function () {
+        return this.elements[2];
+    };
+
+    vector.prototype.w = function () {
+        return this.elements[3];
+    };
+
+    // Addition and subtraction.
+    vector.prototype.add = function (v) {
         var result = new Vector(),
-            row,
-            col,
-            sum;
+            i,
+            max;
 
         // Dimensionality check.
         checkDimensions(this, v);
 
-        for (row = 0; row < 4; row++) {
-        	for (col = 0; col < 4; col++) {
-        		sum = 0;
-        		for (i = 0; i < 4; i++) {
-        			sum += this.elements[row * 4 + i] * v.elements[i * 4 + col];
-        		}
-        		result.elements[row * 4 + col] = sum;
-        	}
+        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+            result.elements[i] = this.elements[i] + v.elements[i];
         }
+
         return result;
     };
-    
-    
-    vector.translate = function (dx, dy, dz) {
-    	return new Vector(
-    		1,0,0,dx,
-    		0,1,0,dy,
-    		0,0,0,dz,
-    		0,0,0,1
-    		);
+
+    vector.prototype.subtract = function (v) {
+        var result = new Vector(),
+            i,
+            max;
+
+        // Dimensionality check.
+        checkDimensions(this, v);
+
+        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+            result.elements[i] = this.elements[i] - v.elements[i];
+        }
+
+        return result;
     };
-    
-    vector.scale = function (sx, sy, sz) {
-    	return new Vector(
-    		sx,0,0,0,
-    		0,sy,0,0,
-    		0,0,sz,0,
-    		0,0,0,1
-    		);
+
+    // Scalar multiplication and division.
+    vector.prototype.multiply = function (s) {
+        var result = new Vector(),
+            i,
+            max;
+
+        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+            result.elements[i] = this.elements[i] * s;
+        }
+
+        return result;
     };
-    
-    vector.rotate = function (ang, x, y, z) {
-    	var axis = Math.sqrt((x*x)+(y*y)+(z*z)),
-    		s = Math.sin(ang*Math.PI/180.0),
-    		c = Math.cos(ang*Math.PI/180.0),
-    		x2,y2,z2,
-    		xy,yz,xz,
-    		xs,ys,zs;
-    	x /= axis;
-    	y /= axis;
-    	z /= axis;
-    	x2 = x*x;
-    	y2 = y*y;
-        z2 = z*z;
-        xy = x*y;
-        yz = y*z;
-        xz = x*z;
-        xs = x*s;
-        ys = y*s;
-        zs = z*s;
-        
+
+    vector.prototype.divide = function (s) {
+        var result = new Vector(),
+            i,
+            max;
+
+        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+            result.elements[i] = this.elements[i] / s;
+        }
+
+        return result;
+    };
+
+    // Dot product.
+    vector.prototype.dot = function (v) {
+        var result = 0,
+            i,
+            max;
+
+        // Dimensionality check.
+        checkDimensions(this, v);
+
+        for (i = 0, max = this.dimensions(); i < max; i += 1) {
+            result += this.elements[i] * v.elements[i];
+        }
+
+        return result;
+    };
+
+    // Cross product.
+    vector.prototype.cross = function (v) {
+        // This method is for 3D vectors only.
+        if (this.dimensions() !== 3 || v.dimensions() !== 3) {
+            throw "Cross product is for 3D vectors only.";
+        }
+
+        // With 3D vectors, we can just return the result directly.
         return new Vector(
-        	(x2 * (1.0-c)) + c, (xy * (1.0-c)) - zs, (xz * (1.0-c)) + ys, 0.0,
-            (xy * (1.0-c)) + zs, (y2 * (1.0-c)) + c, (yz * (1.0-c)) - xs, 0.0,
-            (xz * (1.0-c)) - ys, (yz * (1.0-c)) + xs, (z2 * (1.0-c)) + c, 0.0,
-            0.0, 0.0, 0.0, 1.0
-            );
+            (this.y() * v.z()) - (this.z() * v.y()),
+            (this.z() * v.x()) - (this.x() * v.z()),
+            (this.x() * v.y()) - (this.y() * v.x())
+        );
     };
-    
-    vector.ortho = function (r, l, t, b, n, f) {
-    	var w = r-l,
-    		h = t-b,
-    		d = f-n;
-    	return new Vector(
-    		(2/w),0,0,(-((r+l)/w)),
-    		0,(2/h),0,(-((t+b)/h)),
-    		0,0,(-2/d),(-((f+n)/d)),
-    		0,0,0,1
-    		);
+
+    // Magnitude and unit vector.
+    vector.prototype.magnitude = function () {
+        // Make use of the dot product.
+        return Math.sqrt(this.dot(this));
     };
-    
-    vector.frustum = function (r, l, t, b, n, f) {
-    	var w = r-l,
-    		h = t-b,
-    		d = f-n;
-    	return new Vector(
-    		((2*n)/w),0,((r+l)/w),0,
-    		0,((2*n)/h),((t+b)/h),0,
-    		0,0,((f+n)/d),(-((2*n*f)/d)),
-    		0,0,1,0
-    		);
+
+    vector.prototype.unit = function () {
+        // At this point, we can leverage our more "primitive" methods.
+        return this.divide(this.magnitude());
     };
-    
-    vector.prototype.conversion = function () {
-    	var result = [];
-    	for (var i = 0; i < 4; i++) {
-    		result.push(this.elements[i], this.elements[i+4], this.elements[i+8], this.elements[i+12]);
-    	}
-    	return result;
-    };
-    
-    vector.elements = function () {
-    	return this.elements;
+
+    // Projection.
+    vector.prototype.projection = function (v) {
+        var unitv;
+
+        // Dimensionality check.
+        checkDimensions(this, v);
+
+        // Plug and chug :)
+        // The projection of u onto v is u dot the unit vector of v
+        // times the unit vector of v.
+        unitv = v.unit();
+        return unitv.multiply(this.dot(unitv));
     };
 
     return vector;
