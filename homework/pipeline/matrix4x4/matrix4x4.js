@@ -56,7 +56,9 @@ var Matrix4x4 = (function () {
         return result;
     };
     
-    
+    // JD: Spacing here is a little tight, particularly when you get to the
+    //     more complicated expressions---they become much less readable
+    //     when spaced in this manner.
     matrix4x4.translate = function (dx, dy, dz) {
     	return new Matrix4x4(
     		1,0,0,dx,

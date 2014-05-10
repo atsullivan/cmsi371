@@ -6,6 +6,7 @@ $(function () {
 
     // This suite checks instantiation basics.
     test("Creation and Data Access", function () {
+        // JD: Whoa whoa...Vector???  Is this an unfinished copy-paste hack?
         var v = new Vector();
 
         equal(v.dimensions(), 16, "Matrix size");

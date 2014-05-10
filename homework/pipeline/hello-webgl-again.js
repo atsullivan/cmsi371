@@ -46,6 +46,9 @@
     gl.viewport(0, 0, canvas.width, canvas.height);
 
     // Build the objects to display.
+    // JD: In the final version of your scene, do make sure that you exercise the features
+    //     in the code base that we have built: instance transforms, objects with children,
+    //     variety of shapes, etc.
     objectsToDraw = [
         {
             color: { r: 0.0, g: 0.5, b: 0.0 },
