@@ -54,6 +54,8 @@
             color: { r: 0.0, g: 0.5, b: 0.0 },
             //vertices: Shapes.toRawTriangleArray(Shapes.cube2()),
             //vertices: Shapes.toRawTriangleArray(Shapes.pyramid()),
+
+            // JD: Some inefficiency here---you're generating the same sphere twice.
             vertices: Shapes.toRawTriangleArray(Shapes.sphere(2, 32, 32)),
             mode: gl.TRIANGLES,
             normals: Shapes.toVertexNormalArray(Shapes.sphere(2, 32, 32))
@@ -130,7 +132,8 @@
 
     // Initialize projection matrix
     gl.uniformMatrix4fv(projectionMatrix, 
-        gl.FALSE, 
+        gl.FALSE,
+        // JD: Note, the order of your arguments is r, l, t, b, n, f!
         new Float32Array(Matrix4x4.frustum(-2, 2, 2, -2, 15, 5000).conversion())
     );
 
@@ -194,6 +197,7 @@
         gl.drawArrays(object.mode, 0, object.vertices.length / 3);
         
         // Recrusively draw subobjects/children of objects, if they exist
+        // JD: Decent start but something more is missing.
          if (object.subobjects && object.subobjects.length > 0) {
              for (var i = 0; i < subobjects.length; i++) {
                  drawObject(subobjects[i]);
@@ -223,12 +227,13 @@
 
     // Set up our one light source and color.  Note the uniform3fv function.
     gl.uniform3fv(lightPosition, [7.0, 10.0, 10.0]);
-    gl.uniform3fv(lightDiffuse, [1.0, 2.0, 1.0]);
+    gl.uniform3fv(lightDiffuse, [1.0, 2.0, 1.0]); // JD: Light components range from 0.0-1.0.
     gl.uniformMatrix4fv(rotationMatrix, gl.FALSE, new Float32Array((new Matrix4x4()).conversion()));
 
     // Draw the initial scene.
     drawScene();
 
+    // JD: Bummer that, with a sphere, the rotation is tricky to perceive.
      $(canvas).mousemove(function (event) {
         var rotationY = Matrix4x4.rotate(event.pageX, 1, 0, 1);
             rotationX = Matrix4x4.rotate(event.pageY, 0, 1, 0);
